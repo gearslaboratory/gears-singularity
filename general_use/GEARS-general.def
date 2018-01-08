@@ -4,12 +4,10 @@ MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
 # First working attempt.  Build with: 
-# sudo singularity build R_GEARS_20180105b.img R_GEARS_20180105b.def
 
 %post
   locale-gen en_US.UTF-8
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
-# Source: https://www.r-bloggers.com/how-to-install-r-on-linux-ubuntu-16-04-xenial-xerus/
   echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list
   gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
   gpg -a --export E084DAB9 | apt-key add -
@@ -31,14 +29,3 @@ Include: bash
 
   # Install required R packages
   R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox"), repos="https://cloud.r-project.org/")'
-
-# %test
-#  #!/bin/sh
-#  exec Rscript --slave "/usr/local/share/R/unit.R"
-
-# %runscript
-%apprun Rscript
-  exec Rscript --slave "$@"
-
-%apprun R
-  exec R "$@"
