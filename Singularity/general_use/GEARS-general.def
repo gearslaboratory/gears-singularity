@@ -26,7 +26,7 @@ Include: bash
   apt-get install -y grass libgdal-dev libproj-dev gdal-bin
 
   # Miscellaneous other installs
-  apt-get install -y udunits2
+  apt-get install -y libudunits2-dev
 
 
   apt-get clean
