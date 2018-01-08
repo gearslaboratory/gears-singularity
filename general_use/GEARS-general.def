@@ -1,0 +1,44 @@
+BootStrap: debootstrap
+OSVersion: xenial
+MirrorURL: http://archive.ubuntu.com/ubuntu/
+Include: bash
+
+# First working attempt.  Build with: 
+# sudo singularity build R_GEARS_20180105b.img R_GEARS_20180105b.def
+
+%post
+  locale-gen en_US.UTF-8
+  sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
+# Source: https://www.r-bloggers.com/how-to-install-r-on-linux-ubuntu-16-04-xenial-xerus/
+  echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list
+  gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+  gpg -a --export E084DAB9 | apt-key add -
+  apt-get update
+
+  # Install R, openmpi, misc. utilities:
+  apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev wget vim git nano git cmake  gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libxml2-dev 
+
+  # GDAL et al.:
+  # apt-get install -y libgdal-dev libproj-dev
+
+  # GRASS GIS:
+  apt-get install -y software-properties-common python-software-properties
+  add-apt-repository ppa:ubuntugis/ppa
+  apt-get update
+  apt-get install -y grass libgdal-dev libproj-dev gdal-bin
+
+  apt-get clean
+
+  # Install required R packages
+  R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox"), repos="https://cloud.r-project.org/")'
+
+# %test
+#  #!/bin/sh
+#  exec Rscript --slave "/usr/local/share/R/unit.R"
+
+# %runscript
+%apprun Rscript
+  exec Rscript --slave "$@"
+
+%apprun R
+  exec R "$@"
