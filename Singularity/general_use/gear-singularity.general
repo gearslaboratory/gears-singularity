@@ -3,7 +3,7 @@ OSVersion: xenial
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-# First working attempt.  Build with: 
+# GEARS Lab General-use Singularity image.  Contains R, GDAL, GRASS, and other code...
 
 %post
   locale-gen en_US.UTF-8
@@ -23,16 +23,21 @@ Include: bash
   apt-get install -y software-properties-common python-software-properties
   add-apt-repository ppa:ubuntugis/ppa
   apt-get update
-  apt-get install -y grass libgdal-dev libproj-dev gdal-bin
+  apt-get install -y grass libgdal-dev libproj-dev python-gdal python3-gdal 
 
-  # Miscellaneous other installs
+  # Miscellaneous other installs.
+  # libudunits2-dev is needed for the package "sf"
   apt-get install -y libudunits2-dev
 
+  # Clean up the installations...
   apt-get clean
 
   # Install required R packages
-  R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox","devtools","sf"), repos="https://cloud.r-project.org/")'
+  R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox","devtools","sf","foreach"), repos="https://cloud.r-project.org/")'
+  
   # Install latest GDALUtils:
   R --slave -e 'install.packages(c("gdalUtils"), repos="http://R-Forge.R-project.org")'
+  
+  # Install latest spatial.tools:  
   R --slave -e 'install.packages(c("spatial.tools"), repos="http://R-Forge.R-project.org")'
   
