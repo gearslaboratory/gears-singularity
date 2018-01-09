@@ -28,8 +28,11 @@ Include: bash
   # Miscellaneous other installs
   apt-get install -y libudunits2-dev
 
-
   apt-get clean
 
   # Install required R packages
   R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox","devtools","sf"), repos="https://cloud.r-project.org/")'
+  # Install latest GDALUtils:
+  R --slave -e 'install.packages(c("gdalUtils"), repos="repos="http://R-Forge.R-project.org"")'
+  
+  
