@@ -34,5 +34,5 @@ Include: bash
   R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox","devtools","sf"), repos="https://cloud.r-project.org/")'
   # Install latest GDALUtils:
   R --slave -e 'install.packages(c("gdalUtils"), repos="http://R-Forge.R-project.org")'
-  
+  R --slave -e 'install.packages(c("spatial.tools"), repos="http://R-Forge.R-project.org")'
   
