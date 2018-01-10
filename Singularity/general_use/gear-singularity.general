@@ -33,7 +33,7 @@ Include: bash
   apt-get clean
 
   # Install required R packages
-  R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox","devtools","sf","foreach","R.utils"), repos="https://cloud.r-project.org/")'
+  R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox","devtools","sf","foreach","R.utils","spatial.tools","gdalUtils","randomForestSRC"), repos="https://cloud.r-project.org/")'
   
   # Install latest GDALUtils:
   R --slave -e 'install.packages(c("gdalUtils"), repos="http://R-Forge.R-project.org")'
