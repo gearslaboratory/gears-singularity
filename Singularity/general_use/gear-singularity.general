@@ -28,6 +28,9 @@ Include: bash
   # Miscellaneous other installs.
   # libudunits2-dev is needed for the package "sf"
   apt-get install -y libudunits2-dev
+  
+  # SVN:
+  apt-get install -y subversion
 
   # Clean up the installations...
   apt-get clean
