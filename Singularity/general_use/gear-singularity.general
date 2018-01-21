@@ -16,9 +16,6 @@ Include: bash
   # Install R, openmpi, misc. utilities:
   apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev wget vim git nano git cmake  gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libxml2-dev 
 
-  # GDAL et al.:
-  # apt-get install -y libgdal-dev libproj-dev
-
   # GRASS GIS:
   apt-get install -y software-properties-common python-software-properties
   add-apt-repository ppa:ubuntugis/ppa
