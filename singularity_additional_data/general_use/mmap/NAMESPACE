@@ -1,0 +1,114 @@
+useDynLib(mmap)
+
+importFrom(utils,
+           head,read.table,str)
+
+# user functions
+export(
+       mmap,
+       munmap,
+       msync,
+       mprotect,
+       
+       mmapFlags,
+
+       is.mmap,
+       as.mmap,
+
+       tempmmap,
+
+       extractFUN, "extractFUN<-",
+       replaceFUN, "replaceFUN<-",
+
+       bits,  # not yet implemented
+       logi8, logi32,
+       char,  int8,  int16,  int24,  int32,  
+       uchar, uint8, uint16, uint24, int64,
+       real32, real64,
+       cplx,
+       as.uchar, as.char, as.int8, as.uint8, as.int16, as.uint16, as.int24,
+       pad,
+
+       struct,
+       as.struct,
+       is.struct,
+
+       as.Ctype,
+       is.Ctype,
+       nbytes,
+
+       dim.mmap, "dim<-.mmap",
+       dimnames.mmap, "dimnames<-.mmap",
+       is.array.mmap,
+       sizeof,
+
+       make.fixedwidth,
+
+       mmap.csv
+      )
+
+# S3 methods
+S3method('Ops',mmap)
+S3method('[',mmap)
+S3method('[<-',mmap)
+
+# standard post and pre-processing accessors
+S3method(extractFUN,mmap)
+S3method('extractFUN<-',mmap)
+S3method(replaceFUN,mmap)
+S3method('replaceFUN<-',mmap)
+
+# standard methods
+S3method(close,mmap)
+S3method(str,mmap)
+S3method(print,mmap)
+S3method(length, mmap)
+S3method('length<-', mmap)
+
+S3method(as.mmap, raw)
+S3method(as.mmap, complex)
+S3method(as.mmap, double)
+S3method(as.mmap, integer)
+S3method(as.mmap, character)
+
+# R object default conversion
+S3method(as.mmap, matrix)
+S3method(as.mmap, data.frame)
+
+# methods to handle conversion to internal Ctype
+S3method("[[<-", struct)
+S3method(as.struct, default)
+S3method(as.Ctype, Ctype)
+S3method(as.Ctype, logical)
+S3method(as.Ctype, character)
+S3method(as.Ctype, complex)
+S3method(as.Ctype, double)
+S3method(as.Ctype, integer)
+S3method(as.Ctype, raw)
+S3method(as.char, mmap)
+S3method(as.uchar, mmap)
+S3method(as.int8, mmap)
+S3method(as.uint8, mmap)
+S3method(as.int16, mmap)
+S3method(as.uint16, mmap)
+S3method(as.int24, mmap)
+
+S3method(nbytes, Ctype)
+S3method(nbytes, mmap)
+
+S3method(sizeof, default)
+S3method(sizeof, Ctype)
+S3method(sizeof, "function")
+
+S3method(pad, default)
+S3method(pad, Ctype)
+
+S3method(print, Ctype)
+S3method(as.list, Ctype)
+
+S3method(dim, mmap)
+S3method("dim<-", mmap)
+S3method(dimnames, mmap)
+S3method("dimnames<-", mmap)
+S3method(is.array, mmap)
+
