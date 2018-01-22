@@ -42,4 +42,5 @@ Include: bash
   R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/spatial-tools/pkg/spatial.tools")'  
   
   # Install beta of mmap for now: 
-  R --slave -e 'devtools:::install_git("https://github.com/gearslaboratory/gears-singularity.git",subdir="singularity_additional_data/general_use/mmap")'
+  R --slave -e 'devtools:::install_git("https://github.com/gearslaboratory/gears-singularity.git",subdir="singularity_additional_data/general_use/mmap")'  
+  
