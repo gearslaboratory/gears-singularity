@@ -47,4 +47,13 @@ Include: bash
   # Install pronghorn-tweaked rslurm:
   R --slave -e 'devtools:::install_github("jgrn307/rslurm")'
   
-  
+  # treeseg:
+  add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
+  apt-get update
+  apt-get install libpcl-all
+  git clone https://github.com/apburt/treeseg.git;
+  cd treeseg;
+  mkdir build;
+  cd build;
+  cmake ../src;
+  make;
