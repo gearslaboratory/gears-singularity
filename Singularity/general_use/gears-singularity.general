@@ -48,9 +48,9 @@ Include: bash
   R --slave -e 'devtools:::install_github("jgrn307/rslurm")'
   
   # treeseg:
-  add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
+  # add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl
   apt-get update
-  apt-get install libpcl-all
+  apt-get install -y libpcl-dev
   git clone https://github.com/apburt/treeseg.git;
   cd treeseg;
   mkdir build;
@@ -69,4 +69,8 @@ Include: bash
   apt-get update && apt-get install -y winehq-stable winetricks # this installs Wine2
   apt-get clean
   
-  # Trying to retrigger build.
+  # lastools
+  cd ~
+  wget http://lastools.org/download/LAStools.zip
+  unzip LAStools.zip
+  # TODO: shortcuts/licensing
