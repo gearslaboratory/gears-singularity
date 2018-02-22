@@ -8,7 +8,7 @@ Include: bash
 # Adapted from:
 apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 16126D3A3E5C1192
 apt-get update -qq
-apt-get -qq remove postgis
+# apt-get -qq remove postgis
 
 apt-get update && apt-get install -y --fix-missing --no-install-recommends \
         build-essential \
