@@ -1,2 +1,4 @@
 Bootstrap: docker
-From: pdal/dependencies
+From: pdal/pdal
+
+# Building from docker
