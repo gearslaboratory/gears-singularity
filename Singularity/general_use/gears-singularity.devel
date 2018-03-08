@@ -75,3 +75,7 @@ Include: bash
   wget http://lastools.org/download/LAStools.zip
   unzip LAStools.zip
   # TODO: shortcuts/licensing
+  
+  # Cloud Compare:
+  apt-get install -y snapd
+  snap install cloudcompare
