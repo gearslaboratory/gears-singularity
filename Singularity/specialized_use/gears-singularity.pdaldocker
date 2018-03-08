@@ -1,2 +1,2 @@
 Bootstrap: docker
-From: pdal/pdal:1.6
+From: pdal/pdal
