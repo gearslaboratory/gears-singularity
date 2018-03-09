@@ -20,3 +20,14 @@ Include: bash
   apt-get install -y snapd
   service snapd start
   snap install cloudcompare --channel=stable
+  
+  # Ubuntu???
+  apt-get install -y software-properties-common python-software-properties
+  add-apt-repository -y ppa:romain-janvier/cloudcompare
+  apt-get update
+  apt-get install -y CloudCompare
+  
+  
+  # Compilation:
+  git clone --recursive https://github.com/cloudcompare/trunk.git
+  apt-get install -y cmake qt-sdk
