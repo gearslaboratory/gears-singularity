@@ -1,2 +1,11 @@
 Bootstrap: docker
 From: pdal/dependencies
+
+%post
+	git clone https://github.com/PDAL/PDAL.git pdal
+	cd pdal
+	mkdir makefiles
+	cd makefiles
+	cmake -G "Unix Makefiles" ../
+	make
+	make install
