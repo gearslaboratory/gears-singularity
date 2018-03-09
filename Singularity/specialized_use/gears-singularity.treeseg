@@ -1,0 +1,46 @@
+BootStrap: debootstrap
+OSVersion: xenial
+MirrorURL: http://archive.ubuntu.com/ubuntu/
+Include: bash
+
+###### treeseg container -- no rivlib #####
+
+%environment
+	LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+	export LD_LIBRARY_PATH
+
+%post
+
+### INITIAL STUFF ###
+	locale-gen en_US.UTF-8
+	sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
+	apt-get update
+
+# Core build dependencies:
+	apt-get install -y build-essential git cmake gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libopenmpi-dev openmpi-bin openmpi-common openmpi-doc
+
+### TREESEG INSTALL ###
+  
+  # Needed utilities:
+  apt-get update
+  
+  # treeseg: https://github.com/apburt/treeseg/
+  apt-get install -y libpcl-dev
+  apt-get install -y libproj-dev
+  ln -s /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.2.so /usr/lib/libvtkproj4.so
+  
+  git clone https://github.com/apburt/treeseg.git;
+  # UBUNTU FIXES from Tobias Jackson (tobias.jackson@linacre.ox.ac.uk):
+  # Notes: I had to mod the Cmake to point toward our riegl install location.
+  git clone https://github.com/gearslaboratory/gears-singularity.git
+  cp /root/gears-singularity/additional_data/treeseg/CMakeLists.txt ~/treeseg/src/CMakeLists.txt
+  cd treeseg;
+  mkdir build;
+  cd build;
+  cmake -Wno-dev ../src;
+  make;
+  mv libtreeseg.so /usr/local/lib
+  mv * /usr/local/bin
+  
+ ### END TREESEG INSTALL ####
+  
