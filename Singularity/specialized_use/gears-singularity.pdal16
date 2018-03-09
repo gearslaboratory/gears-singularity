@@ -148,8 +148,10 @@ Include: bash
     cp -R eigen-eigen-b30b87236a1b/unsupported/ /usr/include/unsupported/; \
     rm -rf /3.2.7.tar.gz; \
     rm -rf /eigen-eigen-b30b87236a1b; \
-    svn co -r 2691 https://svn.osgeo.org/metacrs/geotiff/trunk/libgeotiff/; \
-    cd libgeotiff; \
+    wget http://download.osgeo.org/geotiff/libgeotiff/libgeotiff-1.4.2.tar.gz; \
+    tar -xvf libgeotiff-1.4.2.tar.gz; \
+    # svn co -r 2691 https://svn.osgeo.org/metacrs/geotiff/trunk/libgeotiff/; \
+    cd libgeotiff-1.4.2; \
     ./autogen.sh; \
     ./configure --prefix=/usr; \
     make; \
