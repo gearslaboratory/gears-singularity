@@ -17,7 +17,7 @@ Include: bash
 	apt-get update
 
 # Core build dependencies:
-	apt-get install -y build-essential git cmake gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libopenmpi-dev openmpi-bin openmpi-common openmpi-doc
+	apt-get install -y build-essential git cmake gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libopenmpi-dev openmpi-bin openmpi-common openmpi-doc apt-utils
 
 ### TREESEG INSTALL ###
   
@@ -31,7 +31,8 @@ Include: bash
   
   git clone https://github.com/apburt/treeseg.git;
   # UBUNTU FIXES from Tobias Jackson (tobias.jackson@linacre.ox.ac.uk):
-  git clone https://github.com/gearslaboratory/gears-singularity.git
+  git clone https://github.com/gearslaboratory/gears-singularity.git /root/gears-singularity
+  ls /root/gears-singularity/additional_data/treeseg
   cp /root/gears-singularity/additional_data/treeseg/CMakeLists.txt /root/treeseg/src/CMakeLists.txt
   cd treeseg;
   mkdir build;
