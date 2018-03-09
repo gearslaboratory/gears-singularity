@@ -212,6 +212,7 @@ Include: bash
     mkdir build; \
     cd build; \
     cmake .. \
+        -DBUILD_SHARED_LIBS=OFF \
         -DBUILD_PLUGIN_CPD=OFF \
         -DBUILD_PLUGIN_MBIO=ON \
         -DBUILD_PLUGIN_GREYHOUND=ON \
