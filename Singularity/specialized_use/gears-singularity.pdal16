@@ -3,6 +3,10 @@ OSVersion: xenial
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
+%environment
+	JAVA_HOME=/usr/lib/jvm/java-8-oracle
+	export JAVA_HOME
+
 %post
   locale-gen en_US.UTF-8
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
