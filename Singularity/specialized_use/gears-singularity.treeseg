@@ -3,7 +3,7 @@ OSVersion: xenial
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-###### treeseg container -- no rivlib #####
+####### treeseg container -- no rivlib #####
 
 %environment
 	LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
