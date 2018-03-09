@@ -18,4 +18,5 @@ Include: bash
 
   # Cloud Compare:
   apt-get install -y snapd
+  service snap start
   snap install cloudcompare --channel=stable
