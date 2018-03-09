@@ -77,5 +77,6 @@ Include: bash
   # TODO: shortcuts/licensing
   
   # Cloud Compare:
-  apt-get install -y snapd
+  # apt-get install -y snapd
+  snap refresh --stable
   snap install cloudcompare
