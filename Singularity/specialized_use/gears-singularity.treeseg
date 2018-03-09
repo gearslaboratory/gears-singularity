@@ -31,9 +31,8 @@ Include: bash
   
   git clone https://github.com/apburt/treeseg.git;
   # UBUNTU FIXES from Tobias Jackson (tobias.jackson@linacre.ox.ac.uk):
-  # Notes: I had to mod the Cmake to point toward our riegl install location.
   git clone https://github.com/gearslaboratory/gears-singularity.git
-  cp /root/gears-singularity/additional_data/treeseg/CMakeLists.txt ~/treeseg/src/CMakeLists.txt
+  cp /root/gears-singularity/additional_data/treeseg/CMakeLists.txt /root/treeseg/src/CMakeLists.txt
   cd treeseg;
   mkdir build;
   cd build;
