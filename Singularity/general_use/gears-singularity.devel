@@ -74,5 +74,6 @@ Include: bash
   cd ~
   wget http://lastools.org/download/LAStools.zip
   unzip LAStools.zip
+  mv LAStools /opt/
   # TODO: shortcuts/licensing
   
