@@ -1,0 +1,39 @@
+BootStrap: debootstrap
+OSVersion: xenial
+MirrorURL: http://archive.ubuntu.com/ubuntu/
+Include: bash
+
+# GEARS Lab General-use Singularity image.  Contains R, GDAL, GRASS, and other code...
+
+%post
+  locale-gen en_US.UTF-8
+  sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
+  echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list
+  gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+  gpg -a --export E084DAB9 | apt-key add -
+  apt-get update
+
+  # Install R, openmpi, misc. utilities:
+  apt-get install -y libopenblas-dev libcurl4-openssl-dev \
+  libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server \
+  libssh-dev wget vim git nano git cmake gfortran g++ curl wget python autoconf bzip2 \
+  libtool libtool-bin libxml2-dev 
+
+  # wine:
+  mkdir -p /APPS /PROFILES
+  chmod 0777 /APPS /PROFILES
+  dpkg --add-architecture i386
+  apt-get update && apt-get -y install wget less vim software-properties-common python3-software-properties apt-transport-https winbind
+  wget https://dl.winehq.org/wine-builds/Release.key
+  apt-key add Release.key
+  apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
+  apt-get update && apt-get install -y winehq-stable winetricks # this installs Wine2
+  apt-get clean
+  
+  # lastools
+  cd ~
+  wget http://lastools.org/download/LAStools.zip
+  unzip LAStools.zip
+  mv LAStools /opt/
+  # TODO: shortcuts/licensing
+  
