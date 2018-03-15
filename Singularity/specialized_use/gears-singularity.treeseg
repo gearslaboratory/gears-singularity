@@ -46,6 +46,7 @@ Include: bash
   git clone https://github.com/gearslaboratory/gears-singularity.git;
   # ls ~
   cp /gears-singularity/additional_data/treeseg/sepwoodleaf.cpp /treeseg/src/sepwoodleaf.cpp
+  cp /gears-singularity/additional_data/treeseg/CMakeLists.txt /treeseg/src/CMakeLists.txt
   
   cd treeseg;
   rm -rf build;
