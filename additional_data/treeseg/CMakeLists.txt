@@ -1,10 +1,12 @@
 cmake_minimum_required(VERSION 2.8)
+# for pthreads fix: https://stackoverflow.com/questions/15193785/how-to-get-cmake-to-recognize-pthread-on-ubuntu
 project(treeseg C CXX)
 
-set(CMAKE_CXX_FLAGS "-std=c++0x")
+set(CMAKE_CXX_FLAGS "-std=c++0x -f -pthread")
 
 find_package(PCL 1.7 REQUIRED)
 find_package(Armadillo 7.960 REQUIRED)
+# for pthreads fix: https://stackoverflow.com/questions/1620918/cmake-and-libpthread
 find_package(Threads)
 
 include_directories(${PCL_INCLUDE_DIRS} ${ARMADILLO_INCLUDE_DIRS} ../include)
@@ -20,6 +22,9 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 else()
 	message(WARNING "rxp2pcd not building because either RIEGL libs/headers not found, or not a compatible OS.")
 endif()
+
+# Note we added ${CMAKE_THREAD_LIBS_INIT} to all of the link libraries
+#	following https://stackoverflow.com/questions/1620918/cmake-and-libpthread
 
 add_library(treeseg SHARED treeseg.cpp)
 target_link_libraries(treeseg ${PCL_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
