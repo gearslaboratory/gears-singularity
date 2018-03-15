@@ -45,7 +45,7 @@ Include: bash
   # Small fix for sepwoodleaf.cpp:
   git clone https://github.com/gearslaboratory/gears-singularity.git;
   # ls ~
-  cp ~/gears-singularity/additional_data/treeseg/sepwoodleaf.cpp ~/treeseg/src/
+  cp ~/gears-singularity/additional_data/treeseg/sepwoodleaf.cpp ~/treeseg/src/sepwoodleaf.cpp
   
   cd treeseg;
   rm -rf build;
