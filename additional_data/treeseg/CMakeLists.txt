@@ -5,7 +5,7 @@ set(CMAKE_CXX_FLAGS "-std=c++0x")
 
 find_package(PCL 1.7 REQUIRED)
 find_package(Armadillo 7.960 REQUIRED)
-find_package (Threads)
+find_package(Threads)
 
 include_directories(${PCL_INCLUDE_DIRS} ${ARMADILLO_INCLUDE_DIRS} ../include)
 link_directories(../lib)
