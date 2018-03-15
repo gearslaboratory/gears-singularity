@@ -43,7 +43,7 @@ Include: bash
   git clone https://github.com/apburt/treeseg.git;
   
   # Small fix for sepwoodleaf.cpp:
-  git clone https://github.com/gearslaboratory/gears-singularity.git; ~/
+  git clone https://github.com/gearslaboratory/gears-singularity.git;
   # ls ~
   cp ~/gears-singularity/additional_data/treeseg/sepwoodleaf.cpp ~/treeseg/src/
   
