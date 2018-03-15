@@ -6,6 +6,7 @@ Include: bash
 ####### treeseg container -- no rivlib #####
 # treeseg website: https://github.com/apburt/treeseg
 # Authors: Andrew Burt, Mathias Disney, Kim Calders, Matheus Boni Vicari
+# Singularity container by: Jonathan Greenberg <jgreenberg@unr.edu>
 
 %environment
 	LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/lib
@@ -16,6 +17,8 @@ Include: bash
 ### INITIAL STUFF ###
 
 	# Setup locale:
+	apt-get update
+	apt-get install -y locales
 	locale-gen en_US.UTF-8
 	
 	# Add to sources list:
@@ -38,9 +41,6 @@ Include: bash
   apt-get install -y libarmadillo-dev 
   
   git clone https://github.com/apburt/treeseg.git;
-  # UBUNTU FIXES from Tobias Jackson (tobias.jackson@linacre.ox.ac.uk):
-  # git clone https://github.com/gearslaboratory/gears-singularity.git
-  # cp gears-singularity/additional_data/treeseg/CMakeLists.txt treeseg/src/CMakeLists.txt
   cd treeseg;
   rm -rf build;
   mkdir build;
