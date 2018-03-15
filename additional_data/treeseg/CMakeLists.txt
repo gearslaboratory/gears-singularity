@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 # for pthreads fix: https://stackoverflow.com/questions/15193785/how-to-get-cmake-to-recognize-pthread-on-ubuntu
 project(treeseg C CXX)
 
-set(CMAKE_CXX_FLAGS "-std=c++0x -g -pthread")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -g -pthread")
 
 find_package(PCL 1.7 REQUIRED)
 find_package(Armadillo 7.960 REQUIRED)
