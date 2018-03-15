@@ -1,5 +1,5 @@
 BootStrap: debootstrap
-OSVersion: xenial
+OSVersion: bionic
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
@@ -8,7 +8,7 @@ Include: bash
 # Authors: Andrew Burt, Mathias Disney, Kim Calders, Matheus Boni Vicari
 
 %environment
-	LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+	LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/lib
 	export LD_LIBRARY_PATH
 
 %post
@@ -42,9 +42,10 @@ Include: bash
   # git clone https://github.com/gearslaboratory/gears-singularity.git
   # cp gears-singularity/additional_data/treeseg/CMakeLists.txt treeseg/src/CMakeLists.txt
   cd treeseg;
+  rm -rf build;
   mkdir build;
   cd build;
-  cmake -Wno-dev ../src;
+  cmake ../src;
   make;
   mv libtreeseg.so /usr/local/lib
   mv * /usr/local/bin

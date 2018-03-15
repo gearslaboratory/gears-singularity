@@ -3,7 +3,7 @@ OSVersion: xenial
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-# GEARS Lab General-use Singularity image.  Contains R, GDAL, GRASS, and other code...
+# LASTools via WINE
 
 %post
   locale-gen en_US.UTF-8
@@ -13,7 +13,7 @@ Include: bash
   gpg -a --export E084DAB9 | apt-key add -
   apt-get update
 
-  # Install R, openmpi, misc. utilities:
+  # Install misc. utilities:
   apt-get install -y libopenblas-dev libcurl4-openssl-dev \
   libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server \
   libssh-dev wget vim git nano git cmake gfortran g++ curl wget python autoconf bzip2 \
