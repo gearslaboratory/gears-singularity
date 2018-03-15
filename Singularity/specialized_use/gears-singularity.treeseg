@@ -3,7 +3,7 @@ OSVersion: bionic
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-####### treeseg container -- no rivlib ######
+####### treeseg container -- no rivlib #####
 # treeseg website: https://github.com/apburt/treeseg
 # Authors: Andrew Burt, Mathias Disney, Kim Calders, Matheus Boni Vicari
 # Singularity container by: Jonathan Greenberg <jgreenberg@unr.edu>
