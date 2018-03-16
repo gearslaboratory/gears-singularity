@@ -40,13 +40,14 @@ Include: bash
   ln -s /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.2.so /usr/lib/libvtkproj4.so
   apt-get install -y libarmadillo-dev 
   
-  git clone https://github.com/apburt/treeseg.git;
+  # git clone https://github.com/apburt/treeseg.git;
+  git clone -b ubuntu-singularity https://github.com/gearslaboratory/treeseg.git
   
   # Small fix for sepwoodleaf.cpp:
-  git clone https://github.com/gearslaboratory/gears-singularity.git;
+  # git clone https://github.com/gearslaboratory/gears-singularity.git;
   # ls ~
-  cp /gears-singularity/additional_data/treeseg/sepwoodleaf.cpp /treeseg/src/sepwoodleaf.cpp
-  cp /gears-singularity/additional_data/treeseg/CMakeLists.txt /treeseg/src/CMakeLists.txt
+  # cp /gears-singularity/additional_data/treeseg/sepwoodleaf.cpp /treeseg/src/sepwoodleaf.cpp
+  # cp /gears-singularity/additional_data/treeseg/CMakeLists.txt /treeseg/src/CMakeLists.txt
   
   cd treeseg;
   rm -rf build;
