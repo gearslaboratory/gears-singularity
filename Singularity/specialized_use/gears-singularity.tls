@@ -13,6 +13,7 @@ Include: bash
 	apt-get install -y git cmake
 
 # las2pcd: https://github.com/murtiad/las2pcd
+	cd
 	apt-get install -y libpcl-dev liblas-dev liblas-c-dev
 	git clone -b ubuntu-singularity https://github.com/gearslaboratory/las2pcd.git
 	cd las2pcd
@@ -20,3 +21,12 @@ Include: bash
 	make
 	mv las2pcd /usr/bin/
 
+# treeseg: https://github.com/apburt/treeseg
+	cd
+	apt-get install -y libarmadillo-dev libproj-dev libpcl-dev
+	git clone -b ubuntu-singularity-verbose https://github.com/gearslaboratory/treeseg.git
+	cd treeseg
+	mkdir build
+  	cd build
+  	cmake ../src
+  	make
