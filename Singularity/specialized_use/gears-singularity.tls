@@ -21,7 +21,7 @@ Include: bash
 	make
 	mv las2pcd /usr/bin/
 
-# treeseg: https://github.com/apburt/treeseg
+## treeseg: https://github.com/apburt/treeseg
 	cd
 	apt-get install -y libarmadillo-dev libproj-dev libpcl-dev
 	git clone -b ubuntu-singularity-verbose https://github.com/gearslaboratory/treeseg.git
