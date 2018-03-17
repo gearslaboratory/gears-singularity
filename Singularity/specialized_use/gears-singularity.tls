@@ -12,7 +12,7 @@ Include: bash
 	locale-gen en_US.UTF-8
 	apt-get install -y git cmake
 
-# las2pcd: https://github.com/murtiad/las2pcd
+## las2pcd: https://github.com/murtiad/las2pcd
 	cd
 	apt-get install -y libpcl-dev liblas-dev liblas-c-dev
 	git clone -b ubuntu-singularity https://github.com/gearslaboratory/las2pcd.git
