@@ -46,3 +46,21 @@ Include: bash
   
   # Install pronghorn-tweaked rslurm:
   R --slave -e 'devtools:::install_github("jgrn307/rslurm")'
+  
+  # wine:
+  mkdir -p /APPS /PROFILES
+  chmod 0777 /APPS /PROFILES
+  dpkg --add-architecture i386
+  apt-get update && apt-get -y install wget less vim software-properties-common python3-software-properties apt-transport-https winbind
+  wget https://dl.winehq.org/wine-builds/Release.key
+  apt-key add Release.key
+  apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
+  apt-get update && apt-get install -y winehq-stable winetricks # this installs Wine2
+  apt-get clean
+  
+  # lastools
+  cd ~
+  wget http://lastools.org/download/LAStools.zip
+  unzip LAStools.zip
+  mv LAStools /opt/
+  # TODO: shortcuts/licensing
