@@ -35,6 +35,10 @@ Include: bash
   wget http://lastools.org/download/LAStools.zip
   unzip LAStools.zip
   mv LAStools /opt/
-  # TODO: shortcuts/licensing
- 
+  # To get a license working, you'll need to uncomment the cp line below, 
+  #		set the path to your license on your local Singularity building machine
+  #		and:
+  #	singularity build lastools.simg gears-singularity.lastools
+  
+  # cp /pathto/lastoolslicense.txt /opt/LAStools/bin/lastoolslicense.txt
   
