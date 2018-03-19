@@ -14,7 +14,7 @@ Include: bash
 
 %post
 
-### INITIAL STUFF ###
+### INITIAL STUFF ####
 
 	# Setup locale:
 	apt-get update
