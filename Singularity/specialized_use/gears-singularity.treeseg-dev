@@ -41,7 +41,7 @@ Include: bash
   apt-get install -y libarmadillo-dev 
   
   # git clone https://github.com/apburt/treeseg.git;
-  git clone -b ubuntu-singularity-verbose https://github.com/gearslaboratory/treeseg.git
+  git clone -b ubuntu-singularity-calders https://github.com/gearslaboratory/treeseg.git
   
   # Small fix for sepwoodleaf.cpp:
   # git clone https://github.com/gearslaboratory/gears-singularity.git;
