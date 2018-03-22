@@ -7,6 +7,7 @@ Include: bash
 # treeseg website: https://github.com/apburt/treeseg
 # Authors: Andrew Burt, Mathias Disney, Kim Calders, Matheus Boni Vicari
 # Singularity container by: Jonathan Greenberg <jgreenberg@unr.edu>
+# Development version w/Calders' tweaks
 
 %environment
 	LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/lib
