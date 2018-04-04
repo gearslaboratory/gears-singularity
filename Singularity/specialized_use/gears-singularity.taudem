@@ -24,7 +24,7 @@ Include: bash
   apt-get install -y libgdal-dev libproj-dev python-gdal python3-gdal
   
   # taudem
-  git clone https://github.com/dtarb/TauDEM.git
+  git clone -b Develop https://github.com/dtarb/TauDEM.git
   cd TauDEM
   cd src && mkdir build && cd build
   cmake ..
