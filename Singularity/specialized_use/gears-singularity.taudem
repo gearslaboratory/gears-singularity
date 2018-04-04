@@ -1,0 +1,31 @@
+BootStrap: debootstrap
+OSVersion: xenial
+MirrorURL: http://archive.ubuntu.com/ubuntu/
+Include: bash
+
+# TauDEM # 
+# https://github.com/dtarb/TauDEM #
+
+%post
+  locale-gen en_US.UTF-8
+  sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
+  echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list
+  gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+  gpg -a --export E084DAB9 | apt-key add -
+  apt-get update
+
+  # Install misc. utilities:
+  apt-get install -y libopenblas-dev libcurl4-openssl-dev \
+  libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server \
+  libssh-dev wget vim git nano git cmake gfortran g++ curl wget python autoconf bzip2 \
+  libtool libtool-bin libxml2-dev 
+  
+  # taudem dependencies
+  apt-get install -y libgdal-dev libproj-dev python-gdal python3-gdal
+  
+  # taudem
+  git clone -b https://github.com/dtarb/TauDEM.git
+  cd TauDEM
+  cd src && mkdir build && cd build
+  cmake ..
+  make && make install
