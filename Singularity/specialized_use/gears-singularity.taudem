@@ -21,11 +21,18 @@ Include: bash
   libtool libtool-bin libxml2-dev 
   
   # taudem dependencies
-  apt-get install -y libgdal-dev libproj-dev python-gdal python3-gdal
+  apt-get install -y libgdal-dev libproj-dev python-gdal python3-gdal unzip mpi-default-bin mpich2
   
-  # taudem
-  git clone -b Develop https://github.com/dtarb/TauDEM.git
-  cd TauDEM
-  cd src && mkdir build && cd build
-  cmake ..
-  make && make install
+  # taudem from git DOES NOT WORK
+  # git clone -b Develop https://github.com/dtarb/TauDEM.git
+  # cd TauDEM
+  # cd src && mkdir build && cd build
+  # cmake ..
+  # make && make install
+  
+  # taudem from sh: https://unix.stackexchange.com/questions/346775/how-to-solve-building-error-where-a-variable-was-not-declared-in-this-scope
+  # TauDEM 506, seems to work.
+  wget https://sites.google.com/site/geoluislopes/taudem_ubuntu.tar.bz2?attredirects=0&d=1
+  tar xvjf taudem_ubuntu.tar.bz2?attredirects=0
+  cd taudem_ubuntu
+  ./taudem_ubuntu.sh
