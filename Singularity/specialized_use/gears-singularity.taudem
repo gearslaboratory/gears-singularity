@@ -44,7 +44,6 @@ Include: bash
   
   # taudem from sh: https://unix.stackexchange.com/questions/346775/how-to-solve-building-error-where-a-variable-was-not-declared-in-this-scope
   # TauDEM 506, seems to work.
-  wget https://sites.google.com/site/geoluislopes/taudem_ubuntu.tar.bz2?attredirects=0&d=1
-  tar xvjf taudem_ubuntu.tar.bz2?attredirects=0
-  cd taudem_ubuntu
+  git clone https://github.com/gearslaboratory/gears-singularity.git
+  cd gears-singularity/additional_data/taudem
   ./taudem_ubuntu.sh
