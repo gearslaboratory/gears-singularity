@@ -21,7 +21,7 @@ Include: bash
   libtool libtool-bin libxml2-dev 
   
   # taudem dependencies
-  apt-get install -y libgdal-dev libproj-dev python-gdal python3-gdal unzip mpi-default-bin mpich
+  apt-get install -y libgdal-dev libproj-dev python-gdal python3-gdal unzip mpi-default-bin mpich libibverbs-dev
   
   # taudem from git DOES NOT WORK
   # git clone -b Develop https://github.com/dtarb/TauDEM.git
