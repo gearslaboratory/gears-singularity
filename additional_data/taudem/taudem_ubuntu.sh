@@ -28,7 +28,7 @@ cd build
 CXX=mpicxx cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
 # compilando
 make 2>/tmp/erro_taudem.txt
-sudo make install
+make install
 # confirmando a instalacao
 whereis pitremove 1>&2
 exit 0
