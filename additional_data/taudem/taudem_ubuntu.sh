@@ -27,6 +27,7 @@ mkdir build
 cd build
 CXX=mpicxx cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
 # compilando
+make clean
 make 2>/tmp/erro_taudem.txt
 make install
 # confirmando a instalacao
