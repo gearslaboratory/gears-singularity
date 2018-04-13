@@ -36,6 +36,7 @@ Include: bash
  
   # mkdir build && cd build
   # CXX=mpicxx cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
+  # make clean
   # make 2>/tmp/erro_taudem.txt
   # make install
   
@@ -46,6 +47,6 @@ Include: bash
   # TauDEM 506, seems to work.
   git clone https://github.com/gearslaboratory/gears-singularity.git
   cd gears-singularity/additional_data/taudem
-  /bin/bash taudem_ubuntu.sh
+  /bin/bash/ taudem_ubuntu.sh
 
   #
