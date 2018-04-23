@@ -4,6 +4,7 @@ MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
 ## LASTools via WINE ### 
+# Singularity container developed by Jonathan Greenberg (jgreenberg@unr.edu)
 
 %post
   locale-gen en_US.UTF-8
