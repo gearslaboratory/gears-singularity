@@ -27,6 +27,7 @@ mkdir build
 cd build
 CXX=mpicxx cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
 # compilando
+make clean
 make 2>/tmp/erro_taudem.txt
 make install
 # confirmando a instalacao
@@ -44,5 +45,3 @@ c++ (Debian 4.7.2-5) 4.7.2
 Copyright (C) 2012 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-

@@ -46,4 +46,6 @@ Include: bash
   # TauDEM 506, seems to work.
   git clone https://github.com/gearslaboratory/gears-singularity.git
   cd gears-singularity/additional_data/taudem
-  sh taudem_ubuntu.sh
+  /bin/bash taudem_ubuntu.sh
+
+
