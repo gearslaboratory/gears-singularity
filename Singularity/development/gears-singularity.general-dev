@@ -68,5 +68,7 @@ Include: bash
   mv LAStools /opt/
   # TODO: shortcuts/licensing
   
-  # Attempting to get slurm working:
-  apt-get install -y slurm
+  # Allows slurm submissions from within the container 
+  #	assuming home directory/environment variables are mapped to the container
+  #	and nodes have submit access. 
+  apt-get install -y slurm-wlm slurm-wlm-basic-plugins
