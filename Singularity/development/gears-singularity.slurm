@@ -4,6 +4,7 @@ MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
 ### GEARS Lab SLURM submitter for Pronghorn.  
+# TODO: Allow USER and HOSTNAME for SLURM to be modified
 
 %post
   locale-gen en_US.UTF-8
