@@ -3,7 +3,7 @@ OSVersion: xenial
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-### GEARS Lab Singularity Image for Submitting SLURM jobs
+### GEARS Lab SLURM submitter for Pronghorn.  
 
 %post
   locale-gen en_US.UTF-8
@@ -14,7 +14,6 @@ Include: bash
   apt-get update
 
   # Install R, openmpi, misc. utilities:
-  apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev wget vim git nano git cmake  gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libxml2-dev 
+  apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev wget vim git nano git cmake gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libxml2-dev 
 
-  # SLURM stuff:
-  apt-get install -y slurm-wlm slurm-wlm-basic-plugins
+  alias squeue="ssh $USER@$HOSTNAME squeue"
