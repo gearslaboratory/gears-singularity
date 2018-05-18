@@ -68,4 +68,4 @@ Include: bash
   mv LAStools /opt/
   # TODO: shortcuts/licensing
   
-  apt-get install -y module
+  apt-get install -y environment-modules
