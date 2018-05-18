@@ -1,0 +1,20 @@
+BootStrap: debootstrap
+OSVersion: xenial
+MirrorURL: http://archive.ubuntu.com/ubuntu/
+Include: bash
+
+### GEARS Lab Singularity Image for Submitting SLURM jobs
+
+%post
+  locale-gen en_US.UTF-8
+  sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
+  echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list
+  gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+  gpg -a --export E084DAB9 | apt-key add -
+  apt-get update
+
+  # Install R, openmpi, misc. utilities:
+  apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev wget vim git nano git cmake  gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libxml2-dev 
+
+  # SLURM stuff:
+  apt-get install -y slurm-wlm slurm-wlm-basic-plugins
