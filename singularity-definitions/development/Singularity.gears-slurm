@@ -32,7 +32,7 @@ Include: bash
   alias sinfo="ssh $USER@$HOSTNAME sinfo"
   alias smap="ssh $USER@$HOSTNAME smap"	
   alias sprio="ssh $USER@$HOSTNAME sprio"
-  alias squeue="ssh $USER@$HOSTNAME squeue"
+  function squeue { ssh $USER@$HOSTNAME squeue; }
   alias sreport="ssh $USER@$HOSTNAME sreport"
   alias srun="ssh $USER@$HOSTNAME srun"
   alias sshare="ssh $USER@$HOSTNAME sshare"           
