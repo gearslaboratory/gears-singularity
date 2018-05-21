@@ -3,7 +3,7 @@ OSVersion: xenial
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-### #GEARS Lab SLURM submitter for Pronghorn.  
+#### GEARS Lab SLURM submitter for Pronghorn.  
 # TODO: Allow USER and HOSTNAME for SLURM to be modified
 
 %post
