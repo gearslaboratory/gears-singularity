@@ -6,6 +6,9 @@ Include: bash
 #### GEARS Lab SLURM submitter for Pronghorn.  
 # TODO: Allow USER and HOSTNAME for SLURM to be modified
 
+%environment
+  source gears-singularity/additional_data/slurm/slurm_functions.sh
+
 %post
   locale-gen en_US.UTF-8
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
@@ -19,8 +22,8 @@ Include: bash
 
   # Attempting to define the functions:
   git clone https://github.com/gearslaboratory/gears-singularity.git
-  cd gears-singularity/additional_data/slurm
-  source slurm_functions.sh
+  # cd gears-singularity/additional_data/slurm
+  # source slurm_functions.sh
   
      
       
