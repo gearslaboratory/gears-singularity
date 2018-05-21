@@ -20,7 +20,7 @@ Include: bash
   # Attempting to define the functions:
   git clone https://github.com/gearslaboratory/gears-singularity.git
   cd gears-singularity/additional_data/slurm
-  /bin/bash slurm_functions.sh
+  source slurm_functions.sh
   
      
       
