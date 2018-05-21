@@ -21,22 +21,22 @@ Include: bash
 # sacctmgr  sbatch   scontrol  sinfo    squeue   sshare  sview
 # salloc    sbcast   sdiag     smap     sreport  sstat
   
-  alias sacct="ssh $USER@$HOSTNAME sacct"
-  alias sacctmgr="ssh $USER@$HOSTNAME sacctmgr"
-  alias salloc="ssh $USER@$HOSTNAME salloc"
-  alias sattach="ssh $USER@$HOSTNAME sattach"
-  alias sbatch="ssh $USER@$HOSTNAME sbatch"
-  alias scontrol="ssh $USER@$HOSTNAME scontrol"
-  alias sdiag="ssh $USER@$HOSTNAME sdiag"
-  alias sgather="ssh $USER@$HOSTNAME sgather"
-  alias sinfo="ssh $USER@$HOSTNAME sinfo"
-  alias smap="ssh $USER@$HOSTNAME smap"	
-  alias sprio="ssh $USER@$HOSTNAME sprio"
+  function sacct { ssh $USER@$HOSTNAME sacct; }
+  function sacctmgr { ssh $USER@$HOSTNAME sacctmgr; }
+  function salloc { ssh $USER@$HOSTNAME salloc; }
+  function sattach { ssh $USER@$HOSTNAME sattach; }
+  function sbatch { ssh $USER@$HOSTNAME sbatch; }
+  function scontrol { ssh $USER@$HOSTNAME scontrol; }
+  function sdiag { ssh $USER@$HOSTNAME sdiag; }
+  function sgather { ssh $USER@$HOSTNAME sgather; }
+  function sinfo { ssh $USER@$HOSTNAME sinfo; }
+  function smap { ssh $USER@$HOSTNAME smap; }	
+  function sprio { ssh $USER@$HOSTNAME sprio; }
   function squeue { ssh $USER@$HOSTNAME squeue; }
-  alias sreport="ssh $USER@$HOSTNAME sreport"
-  alias srun="ssh $USER@$HOSTNAME srun"
-  alias sshare="ssh $USER@$HOSTNAME sshare"           
-  alias sstat="ssh $USER@$HOSTNAME sstat"           
-  alias strigger="ssh $USER@$HOSTNAME strigger"           
-  alias sview="ssh $USER@$HOSTNAME sview"           
+  function sreport { ssh $USER@$HOSTNAME sreport; }
+  function srun { ssh $USER@$HOSTNAME srun; }
+  function sshare { ssh $USER@$HOSTNAME sshare; }           
+  function sstat { ssh $USER@$HOSTNAME sstat; }           
+  function strigger { ssh $USER@$HOSTNAME strigger; }           
+  function sview { ssh $USER@$HOSTNAME sview; }           
       
