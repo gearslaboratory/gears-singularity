@@ -21,7 +21,7 @@ Include: bash
   # Install R, openmpi, misc. utilities:
   apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev wget vim git nano git cmake gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libxml2-dev 
 
-  # SLURM FROM WITHIN THE CONTAINER VIA SSH
+### SLURM FROM WITHIN THE CONTAINER VIA SSH
 
   echo '#!/bin/bash
 ssh $USER@$HOSTNAME sacct $1' >> /usr/local/bin/sacct
