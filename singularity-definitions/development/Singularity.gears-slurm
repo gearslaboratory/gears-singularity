@@ -21,14 +21,107 @@ Include: bash
   # Install R, openmpi, misc. utilities:
   apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev wget vim git nano git cmake gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libxml2-dev 
 
-  # Attempting to define the functions:
-  # git clone https://github.com/gearslaboratory/gears-singularity.git
-  # cd gears-singularity/additional_data/slurm
-  # source slurm_functions.sh
+  # SLURM FROM WITHIN THE CONTAINER VIA SSH
+
+  cat >> /usr/local/bin/sacct << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME sacct $1
+  EOF
   
+  cat >> /usr/local/bin/sacctmgr << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME sacctmgr $1
+  EOF
+  
+  cat >> /usr/local/bin/salloc << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME salloc $1
+  EOF    
+    
+  cat >> /usr/local/bin/sattach << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME sattach $1
+  EOF
+  
+  cat >> /usr/local/bin/sbatch << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME sbatch $1
+  EOF
+  
+  cat >> /usr/local/bin/sbcast << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME sbcast $1
+  EOF
+  
+  cat >> /usr/local/bin/scancel << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME scancel $1
+  EOF
+  
+  cat >> /usr/local/bin/scontrol << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME scontrol $1
+  EOF
+  
+  cat >> /usr/local/bin/sdiag << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME sdiag $1
+  EOF
+  
+  cat >> /usr/local/bin/sgather << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME sgather $1
+  EOF
+
+  cat >> /usr/local/bin/sinfo << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME sinfo $1
+  EOF
+
+  cat >> /usr/local/bin/smap << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME smap $1
+  EOF
+
+  cat >> /usr/local/bin/sprio << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME sprio $1
+  EOF
+
   cat >> /usr/local/bin/squeue << EOF
   #!/bin/bash
   ssh $USER@$HOSTNAME squeue $1
   EOF
-      
-      
+
+  cat >> /usr/local/bin/sreport << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME sreport $1
+  EOF
+
+  cat >> /usr/local/bin/srun << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME srun $1
+  EOF
+
+  cat >> /usr/local/bin/sshare << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME sshare $1
+  EOF
+
+  cat >> /usr/local/bin/sstat << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME sstat $1
+  EOF
+    
+  cat >> /usr/local/bin/strigger << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME strigger $1
+  EOF
+  
+  cat >> /usr/local/bin/sview << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME sview $1
+  EOF
+  
+  cd /usr/local/bin
+  chmod 755 *    
