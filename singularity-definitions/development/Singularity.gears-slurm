@@ -23,105 +23,65 @@ Include: bash
 
   # SLURM FROM WITHIN THE CONTAINER VIA SSH
 
-  cat > /usr/local/bin/sacct << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME sacct $1
-  EOL
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME sacct $1" >> /usr/local/bin/sacct
   
-  cat > /usr/local/bin/sacctmgr << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME sacctmgr $1
-  EOL
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME sacctmgr $1" >> /usr/local/bin/sacctmgr
   
-  cat > /usr/local/bin/salloc << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME salloc $1
-  EOL    
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME salloc $1" >> /usr/local/bin/salloc
     
-  cat > /usr/local/bin/sattach << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME sattach $1
-  EOL
-  
-  cat > /usr/local/bin/sbatch << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME sbatch $1
-  EOL
-  
-  cat > /usr/local/bin/sbcast << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME sbcast $1
-  EOL
-  
-  cat > /usr/local/bin/scancel << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME scancel $1
-  EOL
-  
-  cat > /usr/local/bin/scontrol << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME scontrol $1
-  EOL
-  
-  cat > /usr/local/bin/sdiag << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME sdiag $1
-  EOL
-  
-  cat > /usr/local/bin/sgather << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME sgather $1
-  EOL
-
-  cat > /usr/local/bin/sinfo << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME sinfo $1
-  EOL
-
-  cat > /usr/local/bin/smap << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME smap $1
-  EOL
-
-  cat > /usr/local/bin/sprio << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME sprio $1
-  EOL
-
-  cat > /usr/local/bin/squeue << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME squeue $1
-  EOL
-
-  cat > /usr/local/bin/sreport << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME sreport $1
-  EOL
-
-  cat > /usr/local/bin/srun << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME srun $1
-  EOL
-
-  cat > /usr/local/bin/sshare << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME sshare $1
-  EOL
-
-  cat > /usr/local/bin/sstat << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME sstat $1
-  EOL
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME sattach $1" >> /usr/local/bin/sattach
     
-  cat > /usr/local/bin/strigger << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME strigger $1
-  EOL
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME sbatch $1" >> /usr/local/bin/sbatch
+    
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME sbcast $1" >> /usr/local/bin/sbcast
   
-  cat > /usr/local/bin/sview << 'EOL'
-  #!/bin/bash
-  ssh $USER@$HOSTNAME sview $1
-  EOL
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME scancel $1" >> /usr/local/bin/scancel
+  
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME scontrol $1" >> /usr/local/bin/scontrol
+  
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME sdiag $1" >> /usr/local/bin/sdiag
+  
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME sgather $1" >> /usr/local/bin/sgather
+  
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME sinfo $1" >> /usr/local/bin/sinfo
+  
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME smap $1" >> /usr/local/bin/smap
+  
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME sprio $1" >> /usr/local/bin/sprio
+  
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME squeue $1" >> /usr/local/bin/squeue
+  
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME sreport $1" >> /usr/local/bin/sreport
+  
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME srun $1" >> /usr/local/bin/srun
+  
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME sshare $1" >> /usr/local/bin/sshare
+  
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME sstat $1" >> /usr/local/bin/sstat
+      
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME strigger $1" >> /usr/local/bin/strigger
+  
+  echo "#!/bin/bash
+  ssh $USER@$HOSTNAME sview $1" >> /usr/local/bin/sview
   
   cd /usr/local/bin
   chmod 755 *    
