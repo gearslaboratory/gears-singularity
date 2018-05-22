@@ -26,7 +26,7 @@ Include: bash
   # cd gears-singularity/additional_data/slurm
   # source slurm_functions.sh
   
-  cat >> /usr/bin/squeue << EOF
+  cat >> /usr/local/bin/squeue << EOF
   #!/bin/bash
   ssh $USER@$HOSTNAME squeue $1
   EOF
