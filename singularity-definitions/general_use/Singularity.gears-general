@@ -5,6 +5,12 @@ Include: bash
 
 ##### GEARS Lab General-use Singularity image.  Contains R, GDAL, GRASS, and other code...
 
+%environment
+    TMPDIR=TMPDIR
+    TMP=TMP
+    TEMP=TEMP
+    export TMPDIR TMP TEMP
+
 %post
   locale-gen en_US.UTF-8
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
