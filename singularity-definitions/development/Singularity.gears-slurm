@@ -6,8 +6,8 @@ Include: bash
 #### GEARS Lab SLURM submitter for Pronghorn.  
 # TODO: Allow USER and HOSTNAME for SLURM to be modified
 
-%environment
-  alias squeue='ssh ${USER}@${HOSTNAME} squeue'
+# %environment
+#  alias squeue='ssh ${USER}@${HOSTNAME} squeue'
 
 
 %post
@@ -26,6 +26,11 @@ Include: bash
   # cd gears-singularity/additional_data/slurm
   # source slurm_functions.sh
   
+  cat >> squeue << EOF
+  #!/bin/bash
+  ssh $USER@$HOSTNAME squeue $1
+  EOF
   
+  mv squeue /usr/bin/
      
       
