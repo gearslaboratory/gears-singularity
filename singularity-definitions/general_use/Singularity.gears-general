@@ -39,13 +39,13 @@ Include: bash
   apt-get clean
 
   # Install required R packages
-  R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox","devtools","sf","foreach","R.utils","spatial.tools","gdalUtils","randomForestSRC","remotes","getopts","rslurm","future"), repos="https://cloud.r-project.org/")'
+  R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox","devtools","sf","foreach","R.utils","spatial.tools","gdalUtils","randomForestSRC","remotes","future"), repos="https://cloud.r-project.org/")'
   
   # Install latest GDALUtils:
-  R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/gdalutils/pkg/gdalUtils")'
+  # R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/gdalutils/pkg/gdalUtils")'
   
   # Install latest spatial.tools:  
-  R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/spatial-tools/pkg/spatial.tools")'  
+  # R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/spatial-tools/pkg/spatial.tools")'  
   
   # ESPA tools:
   R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/espa-tools/pkg/espa.tools")'
@@ -54,7 +54,7 @@ Include: bash
   R --slave -e 'devtools:::install_git("https://github.com/gearslaboratory/gears-singularity.git",subdir="singularity_additional_data/general_use/mmap")'  
   
   # Install pronghorn-tweaked rslurm:
-  R --slave -e 'devtools:::install_github("jgrn307/rslurm")'
+  # R --slave -e 'devtools:::install_github("jgrn307/rslurm")'
   
   # wine:
   mkdir -p /APPS /PROFILES
