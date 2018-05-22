@@ -3,10 +3,21 @@ OSVersion: xenial
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-#### GEARS Lab SLURM submitter for Pronghorn.  
-# TODO: Allow USER and HOSTNAME for SLURM to be modified
+#### Singularity SLURM submitter.
+# This allows for a singularity container to run slurm commands.
+# Note this uses ssh remote execution and likely needs an ssh keypair
+#	otherwise the user will be prompted for a password.
+# Right now, this assumes the singularity container is running on the
+#	machine with SLURM so passes $USER and $HOSTNAME as the target
+#	of the SLURM executables.  These can be modified by setting 
+#	the $USER and $HOSTNAME credentials.  
+# Solution by Jonathan Greenberg (jgreenberg@unr.edu) with input
+#	from Artin Matousian, John Anderson, and Sebastian Smith.
 
 %post
+
+### Setup:
+
   locale-gen en_US.UTF-8
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
   echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list
@@ -14,8 +25,8 @@ Include: bash
   gpg -a --export E084DAB9 | apt-key add -
   apt-get update
 
-  # Install R, openmpi, misc. utilities:
-  apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev wget vim git nano git cmake gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libxml2-dev 
+  # Various utilities:
+  apt-get install -y libopenblas-dev libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev wget vim git nano git cmake gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libxml2-dev 
 
 ### SLURM FROM WITHIN THE CONTAINER VIA SSH
 
