@@ -37,4 +37,5 @@ Include: bash
   	cmake ../src
   	make
 	mv libtreeseg.so /usr/local/lib
+	mv libleafsep.so /usr/local/lib
   	mv * /usr/local/bin
