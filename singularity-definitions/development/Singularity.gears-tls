@@ -5,6 +5,10 @@ Include: bash
 
 ## TLS Apps?
 
+%environment
+	LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/lib
+	export LD_LIBRARY_PATH
+
 %post
 
 # Setup locale and core build dependencies::
