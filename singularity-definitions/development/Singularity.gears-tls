@@ -32,3 +32,5 @@ Include: bash
   	cd build
   	cmake ../src
   	make
+	mv libtreeseg.so /usr/local/lib
+  	mv * /usr/local/bin
