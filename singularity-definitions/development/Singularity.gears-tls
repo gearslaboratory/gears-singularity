@@ -3,6 +3,8 @@ OSVersion: bionic
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
+# TLS Apps?
+
 %post
 
 # Setup locale and core build dependencies::
