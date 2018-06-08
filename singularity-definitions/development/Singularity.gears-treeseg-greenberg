@@ -30,7 +30,7 @@ Include: bash
 ## treeseg: https://github.com/apburt/treeseg
 	cd
 	apt-get install -y libarmadillo-dev libproj-dev libpcl-dev
-	git clone -b ubuntu-singularity-verbose https://github.com/gearslaboratory/treeseg.git
+	git clone -b allometric-tweaks https://github.com/gearslaboratory/treeseg.git
 	cd treeseg
 	mkdir build
   	cd build
