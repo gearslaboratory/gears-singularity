@@ -3,7 +3,7 @@ OSVersion: bionic
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-## TLS Apps?
+## Treeseg "stable" image
 
 %environment
 	LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/lib
@@ -18,15 +18,6 @@ Include: bash
 	locale-gen en_US.UTF-8
 	apt-get install -y git cmake
 
-### las2pcd: https://github.com/murtiad/las2pcd
-	cd
-	apt-get install -y libpcl-dev liblas-dev liblas-c-dev
-	git clone -b treeseg_fix https://github.com/gearslaboratory/las2pcd.git
-	cd las2pcd
-	cmake .
-	make
-	mv las2pcd /usr/bin/
-
 ## treeseg: https://github.com/apburt/treeseg
 	cd
 	apt-get install -y libarmadillo-dev libproj-dev libpcl-dev
@@ -36,6 +27,5 @@ Include: bash
   	cd build
   	cmake ../src
   	make
-	mv libtreeseg.so /usr/local/lib
-	mv libleafsep.so /usr/local/lib
+	mv *.so /usr/local/lib
   	mv * /usr/local/bin
