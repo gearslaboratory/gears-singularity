@@ -6,12 +6,14 @@ Include: bash
 ##### GEARS Lab General-use Singularity image.  Contains R, GDAL, GRASS, and other code...
 
 %post
-  locale-gen en_US.UTF-8
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
+  apt-get update
+  apt-get install -y locales
+  locale-gen en_US.UTF-8
   echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list
   gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
   gpg -a --export E084DAB9 | apt-key add -
-  apt-get update
+
 
   # Latest R
   apt-get install -y software-properties-common python-software-properties
