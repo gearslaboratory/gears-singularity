@@ -1,5 +1,5 @@
 BootStrap: debootstrap
-OSVersion: artful
+OSVersion: xenial
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
@@ -15,7 +15,7 @@ Include: bash
 
   # Latest R
   apt-get install -y software-properties-common python-software-properties
-  add-apt-repository ppa:edd/r-3.5
+  # add-apt-repository ppa:edd/r-3.5
   apt-get update
   
   # Install R, openmpi, misc. utilities:
