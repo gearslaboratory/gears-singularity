@@ -41,7 +41,7 @@ Include: bash
   R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox","devtools","sf","foreach","R.utils","spatial.tools","gdalUtils","randomForestSRC","remotes","future"), repos="https://cloud.r-project.org/")'
   
   # Install lidR:
-  apt-get install -y freetype2
+  apt-get install -y freetype
   R --slave -e 'install.packages(c("lidR"), repos="https://cloud.r-project.org/")'
   
   # Install latest GDALUtils:
