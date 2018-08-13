@@ -3,7 +3,7 @@ OSVersion: xenial
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-## LASTools via WINE ### 
+### LASTools via WINE ### 
 # Singularity container developed by Jonathan Greenberg (jgreenberg@unr.edu)
 
 %post
