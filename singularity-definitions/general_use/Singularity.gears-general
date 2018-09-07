@@ -3,7 +3,7 @@ OSVersion: xenial
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-##### GEARS Lab General-use Singularity image.  Contains R, GDAL, GRASS, and other code...
+###### GEARS Lab General-use Singularity image.  Contains R, GDAL, GRASS, and other code...
 
 %post
   locale-gen en_US.UTF-8
