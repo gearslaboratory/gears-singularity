@@ -8,10 +8,10 @@ Include: bash
 %post
   locale-gen en_US.UTF-8
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
-#  echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list
-  echo "deb https://cloud.r-project.org/bin/linux/ubuntu xenial-cran35/" | tee -a /etc/apt/sources.list
-#  gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
-#  gpg -a --export E084DAB9 | apt-key add -
+  echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list
+#  echo "deb https://cloud.r-project.org/bin/linux/ubuntu xenial-cran35/" | tee -a /etc/apt/sources.list
+  gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+  gpg -a --export E084DAB9 | apt-key add -
   apt-get update
 
   # Latest R
