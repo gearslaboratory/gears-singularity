@@ -29,6 +29,7 @@ Include: bash
   add-apt-repository ppa:ubuntugis/ppa
   apt-get update
   apt-get install -y grass libgdal-dev libproj-dev python-gdal python3-gdal qgis python-qgis
+  apt-get install -y libgdal-dev gdal-bin libproj-dev proj-data proj-bin libgeos-dev
 
   # Miscellaneous other installs.
   # libudunits2-dev is needed for the package "sf"
