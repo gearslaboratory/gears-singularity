@@ -63,8 +63,8 @@ Include: bash
   # ESPA tools:
   R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/espa-tools/pkg/espa.tools")'
   
-  # Install beta of mmap for now: 
-  R --slave -e 'devtools:::install_git("https://github.com/gearslaboratory/gears-singularity.git",subdir="singularity_additional_data/general_use/mmap")'  
+#  # Install beta of mmap for now: 
+#  R --slave -e 'devtools:::install_git("https://github.com/gearslaboratory/gears-singularity.git",subdir="singularity_additional_data/general_use/mmap")'  
   
   # Install pronghorn-tweaked rslurm:
   # R --slave -e 'devtools:::install_github("jgrn307/rslurm")'
