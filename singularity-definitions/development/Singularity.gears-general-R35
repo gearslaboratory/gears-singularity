@@ -6,6 +6,8 @@ Include: bash
 ###### GEARS Lab General-use Singularity image.  Contains R, GDAL, GRASS, and other code...
 
 %post
+  apt-get update
+  apt-get upgrade
   apt-get install apt-transport-https
   locale-gen en_US.UTF-8
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
