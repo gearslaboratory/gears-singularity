@@ -29,7 +29,7 @@ Include: bash
   apt-get update
   
   # Install R, openmpi, misc. utilities:
-  apt-get install -y libopenblas-dev r-base r-recommended r-base-dev r-cran-kernsmooth r-cran-nnet r-api-3 libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev wget vim git nano git cmake  gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libxml2-dev 
+  apt-get install -y libopenblas-dev r-base r-base-core r-recommended r-base-dev r-cran-kernsmooth r-cran-nnet r-api-3 libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev wget vim git nano git cmake  gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libxml2-dev 
 
   # GRASS GIS and QGIS:
   apt-get install -y software-properties-common python-software-properties
