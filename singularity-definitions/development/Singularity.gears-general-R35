@@ -54,7 +54,7 @@ Include: bash
   apt-get clean
 
   # Install required R packages
-  R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox","devtools","sf","foreach","R.utils","spatial.tools","gdalUtils","randomForestSRC","remotes","future"), repos="https://cloud.r-project.org/")'
+  # R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox","devtools","sf","foreach","R.utils","spatial.tools","gdalUtils","randomForestSRC","remotes","future"), repos="https://cloud.r-project.org/")'
   
   # Install latest GDALUtils:
   # R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/gdalutils/pkg/gdalUtils")'
@@ -63,10 +63,10 @@ Include: bash
   # R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/spatial-tools/pkg/spatial.tools")'  
   
   # ESPA tools:
-  R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/espa-tools/pkg/espa.tools")'
+  # R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/espa-tools/pkg/espa.tools")'
   
   # Install beta of mmap for now: 
-  R --slave -e 'devtools:::install_git("https://github.com/gearslaboratory/gears-singularity.git",subdir="singularity_additional_data/general_use/mmap")'  
+  # R --slave -e 'devtools:::install_git("https://github.com/gearslaboratory/gears-singularity.git",subdir="singularity_additional_data/general_use/mmap")'  
   
   # Install pronghorn-tweaked rslurm:
   # R --slave -e 'devtools:::install_github("jgrn307/rslurm")'
@@ -88,6 +88,15 @@ Include: bash
   unzip LAStools.zip
   mv LAStools /opt/
   # TODO: shortcuts/licensing
+  
+  # rfsrc openmpi:
+  wget https://www.dropbox.com/s/qzbejn5fdn4t0qp/randomForestSRC_2.7.0.23.tar.gz?dl=0
+  mv randomForestSRC_2.7.0.5.tar.gz?dl=0 randomForestSRC_2.7.0.23.tar.gz
+  tar -xzf randomForestSRC_2.7.0.23.tar.gz
+  cd randomForestSRC
+  autoconf
+  cd ..
+  R CMD INSTALL randomForestSRC
   
   ### SLURM FROM WITHIN THE CONTAINER VIA SSH
 
