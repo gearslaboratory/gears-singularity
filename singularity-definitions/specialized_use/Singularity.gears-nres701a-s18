@@ -6,6 +6,7 @@ Include: bash
 ###### NRES701A-S18 Singularity Image #
 
 %post
+  apt-get install -y locales 
   locale-gen en_US.UTF-8
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
   echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list
