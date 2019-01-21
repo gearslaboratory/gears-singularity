@@ -90,13 +90,13 @@ Include: bash
   # TODO: shortcuts/licensing
   
   # rfsrc openmpi:
-  wget https://www.dropbox.com/s/qzbejn5fdn4t0qp/randomForestSRC_2.7.0.23.tar.gz?dl=0
-  mv randomForestSRC_2.7.0.5.tar.gz?dl=0 randomForestSRC_2.7.0.23.tar.gz
-  tar -xzf randomForestSRC_2.7.0.23.tar.gz
-  cd randomForestSRC
-  autoconf
-  cd ..
-  R CMD INSTALL randomForestSRC
+  #wget https://www.dropbox.com/s/qzbejn5fdn4t0qp/randomForestSRC_2.7.0.23.tar.gz?dl=0
+  #mv randomForestSRC_2.7.0.5.tar.gz?dl=0 randomForestSRC_2.7.0.23.tar.gz
+  #tar -xzf randomForestSRC_2.7.0.23.tar.gz
+  #cd randomForestSRC
+  #autoconf
+  #cd ..
+  #R CMD INSTALL randomForestSRC
   
   ### SLURM FROM WITHIN THE CONTAINER VIA SSH
 
