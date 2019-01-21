@@ -3,7 +3,7 @@ OSVersion: bionic
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-###### NRES701A-S18 Singularity Image
+###### NRES701A-S18 Singularity Image #
 
 %post
   locale-gen en_US.UTF-8
