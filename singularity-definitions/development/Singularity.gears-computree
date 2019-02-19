@@ -1,0 +1,38 @@
+BootStrap: debootstrap
+OSVersion: bionic
+MirrorURL: http://archive.ubuntu.com/ubuntu/
+Include: bash
+
+### Computree via WINE ### 
+# Singularity container developed by Jonathan Greenberg (jgreenberg@unr.edu)
+
+%post
+  locale-gen en_US.UTF-8
+  sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
+  echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list
+  gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+  gpg -a --export E084DAB9 | apt-key add -
+  apt-get update
+
+  # Install misc. utilities:
+  apt-get install -y libopenblas-dev libcurl4-openssl-dev \
+  libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server \
+  libssh-dev wget vim git nano git cmake gfortran g++ curl wget python autoconf bzip2 \
+  libtool libtool-bin libxml2-dev 
+
+  # wine:
+  mkdir -p /APPS /PROFILES
+  chmod 0777 /APPS /PROFILES
+  dpkg --add-architecture i386
+  wget -nc https://dl.winehq.org/wine-builds/winehq.key
+  apt-key add winehq.key
+  apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
+  apt update
+  apt install --install-recommends winehq-stable
+  apt-get clean
+  
+  # computree
+  git clone https://github.com/gearslaboratory/gears-singularity.git
+  cd gears-singularity/additional_data/computree
+  unzip computree_v5.0.184e.zip
+  mv computree_v5.0.184e /APPS/
