@@ -7,17 +7,15 @@ Include: bash
 # Singularity container developed by Jonathan Greenberg (jgreenberg@unr.edu)
 
 %post
-   apt-get clean
-   apt-get -y update
-   
-   
-   apt-get install -y locales
-   locale-gen en_US.UTF-8
+  apt-get clean
+  apt-get -y update
+    
+  apt-get install -y locales
+  locale-gen en_US.UTF-8
 	
-   apt-get install -y software-properties-common
+  apt-get install -y software-properties-common
 	
-	
-	# Add to sources list:
+  # Add to sources list:
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
   apt-get -y update
 
@@ -34,8 +32,8 @@ Include: bash
   wget -nc https://dl.winehq.org/wine-builds/winehq.key
   apt-key add winehq.key
   apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
-  apt update
-  apt install --install-recommends winehq-stable
+  apt-get update
+  apt-get install -y --install-recommends winehq-stable
   apt-get clean
   
   # computree
