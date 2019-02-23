@@ -6,6 +6,10 @@ Include: bash
 # TauDEM ## 
 # https://github.com/dtarb/TauDEM #
 
+%environment
+    PATH=$PATH:/usr/local/taudem/
+    export PATH
+
 %post
   apt-get clean && apt-get -y update && apt-get install -y locales && locale-gen en_US.UTF-8
 	
