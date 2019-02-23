@@ -7,12 +7,16 @@ Include: bash
 # https://github.com/dtarb/TauDEM #
 
 %post
-  locale-gen en_US.UTF-8
+  apt-get clean && apt-get -y update && apt-get install -y locales && locale-gen en_US.UTF-8
+	
+  # Add to sources list:
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
-  echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | tee -a /etc/apt/sources.list
-  gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
-  gpg -a --export E084DAB9 | apt-key add -
-  apt-get update
+  apt-get -y update
+
+  # Latest R
+  apt-get install -y software-properties-common
+  # add-apt-repository ppa:edd/r-3.5
+  # apt-get update
 
   # Install misc. utilities:
   apt-get install -y libopenblas-dev libcurl4-openssl-dev \
