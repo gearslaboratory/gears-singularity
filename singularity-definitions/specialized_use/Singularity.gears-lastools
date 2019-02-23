@@ -37,6 +37,10 @@ Include: bash
   
   # lastools
   cd ~
-  wget http://lastools.org/download/LAStools.zip
+  wget https://lastools.github.io/download/LAStools.zip
   unzip LAStools.zip
   mv LAStools /APPS/
+  
+# Testing lastools shortcuts:  
+ echo '#!/bin/bash
+WINEDEBUG=-all wine /APPS/LASTools/bin/lasinfo.exe $1' >> /usr/local/bin/lasinfo
