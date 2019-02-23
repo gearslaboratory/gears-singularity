@@ -8,7 +8,7 @@ Include: bash
 %post
   apt-get clean && apt-get -y update && apt-get install -y locales && locale-gen en_US.UTF-8
 	
-	# Add to sources list:
+  # Add to sources list:
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
   apt-get -y update
 
@@ -60,13 +60,16 @@ Include: bash
   unzip LAStools.zip
   mv LAStools /APPS/
   
-# Testing lastools shortcuts:  
+# Lastools shortcuts:  
 for filename in /data/gpfs/home/jgreenberg/LAStools/bin/*.exe; do
 basename=`basename $filename .exe`
   echo '#!/bin/bash
 WINEDEBUG=-all wine '$filename '$1' >> /usr/local/bin/$basename
 chmod 755 /usr/local/bin/$basename
 done
+  
+# PDAL via conda
+#   
   
   ### SLURM FROM WITHIN THE CONTAINER VIA SSH
 
