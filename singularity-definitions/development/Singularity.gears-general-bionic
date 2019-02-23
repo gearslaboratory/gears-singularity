@@ -28,7 +28,7 @@ Include: bash
   	bzip2 libtool libtool-bin libxml2-dev unzip
 
   # GRASS GIS and QGIS:
-  apt-get install -y software-properties-common python-software-properties
+  apt-get install -y software-properties-common
   add-apt-repository ppa:ubuntugis/ppa
   apt-get update
   apt-get install -y grass libgdal-dev libproj-dev python-gdal python3-gdal qgis python-qgis
