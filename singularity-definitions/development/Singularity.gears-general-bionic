@@ -12,7 +12,6 @@ Include: bash
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
   apt-get -y update
 
-
   # Latest R
   apt-get install -y software-properties-common python-software-properties
   # add-apt-repository ppa:edd/r-3.5
@@ -37,24 +36,6 @@ Include: bash
   # Clean up the installations...
   apt-get clean
 
-  # Install required R packages
-  R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox","devtools","sf","foreach","R.utils","spatial.tools","gdalUtils","randomForestSRC","remotes","future"), repos="https://cloud.r-project.org/")'
-  
-  # Install latest GDALUtils:
-  # R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/gdalutils/pkg/gdalUtils")'
-  
-  # Install latest spatial.tools:  
-  # R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/spatial-tools/pkg/spatial.tools")'  
-  
-  # ESPA tools:
-  R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/espa-tools/pkg/espa.tools")'
-  
-  # Install beta of mmap for now: 
-  R --slave -e 'devtools:::install_git("https://github.com/gearslaboratory/gears-singularity.git",subdir="singularity_additional_data/general_use/mmap")'  
-  
-  # Install pronghorn-tweaked rslurm:
-  # R --slave -e 'devtools:::install_github("jgrn307/rslurm")'
-  
   # wine:
   mkdir -p /APPS /PROFILES
   chmod 0777 /APPS /PROFILES
@@ -71,14 +52,13 @@ Include: bash
   cd gears-singularity/additional_data/computree
   unzip computree_v5.0.184e.zip
   mv computree_v5.0.184e /APPS/
+  # TODO: shortcut
 
   # lastools
   cd ~
   wget https://lastools.github.io/download/LAStools.zip
   unzip LAStools.zip
   mv LAStools /APPS/
- # TODO: shortcut
- 
   
 # Testing lastools shortcuts:  
 for filename in /data/gpfs/home/jgreenberg/LAStools/bin/*.exe; do
