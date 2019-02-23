@@ -61,7 +61,7 @@ Include: bash
   mv LAStools /APPS/
   
 # Lastools shortcuts:  
-for filename in /data/gpfs/home/jgreenberg/LAStools/bin/*.exe; do
+for filename in /APPS/LAStools/bin/*.exe; do
 basename=`basename $filename .exe`
   echo '#!/bin/bash
 WINEDEBUG=-all wine '$filename '$1' >> /usr/local/bin/$basename
