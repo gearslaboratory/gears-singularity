@@ -23,40 +23,18 @@ Include: bash
   # apt-get update
 
   # Install misc. utilities:
-  apt-get install -y libopenblas-dev libcurl4-openssl-dev \
-  libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server \
-  libssh-dev wget vim git nano git cmake gfortran g++ curl wget python autoconf bzip2 \
-  libtool libtool-bin libxml2-dev 
+  apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev \
+  	libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server \
+  	libssh-dev wget vim git nano git cmake gfortran g++ curl wget python autoconf \
+  	bzip2 libtool libtool-bin libxml2-dev unzip
   
   # taudem dependencies
   apt-get install -y libgdal-dev libproj-dev python-gdal python3-gdal unzip libibverbs-dev mpich # mpi-default-bin mpich 
   
-  # taudem from git DOES NOT WORK
   git clone -b Develop https://github.com/dtarb/TauDEM.git
   cd TauDEM
   cd src && mkdir build && cd build
   cmake ..
   make && make install
-  
-  # cp linearpart.h  linearpart.h_original
-  # cat linearpart.h_original | sed s/\"mpi.h\"/\"mpi.h\"\\n#include\ \<stdint.h\>/ > linearpart.h
-  # head -n 50 linearpart.h 1>&2
-  # cp tiffIO.h tiffIO.h_original
-  # cat tiffIO.h_original | sed s/\"stdint.h\"/\<stdint.h\>/ > tiffIO.h
-  # head -n 50 tiffIO.h 1>&2
- 
-  # mkdir build && cd build
-  # CXX=mpicxx cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
-  # make 2>/tmp/erro_taudem.txt
-  # make install
-  
-  # cmake ..
-  # make && make install
-  
-  # taudem from sh: https://unix.stackexchange.com/questions/346775/how-to-solve-building-error-where-a-variable-was-not-declared-in-this-scope
-  # TauDEM 506, seems to work.
-  #git clone https://github.com/gearslaboratory/gears-singularity.git
-  #cd gears-singularity/additional_data/taudem
-  #/bin/bash taudem_ubuntu.sh
 
 
