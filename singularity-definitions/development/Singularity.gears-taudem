@@ -1,5 +1,5 @@
 BootStrap: debootstrap
-OSVersion: xenial
+OSVersion: bionic
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
@@ -21,12 +21,15 @@ Include: bash
   libtool libtool-bin libxml2-dev 
   
   # taudem dependencies
-  apt-get install -y libgdal-dev libproj-dev python-gdal python3-gdal unzip libibverbs-dev # mpi-default-bin mpich 
+  apt-get install -y libgdal-dev libproj-dev python-gdal python3-gdal unzip libibverbs-dev mpich2 # mpi-default-bin mpich 
   
   # taudem from git DOES NOT WORK
-  # git clone -b Develop https://github.com/dtarb/TauDEM.git
-  # cd TauDEM
-  # cd src
+  git clone -b Develop https://github.com/dtarb/TauDEM.git
+  cd TauDEM
+  cd src && mkdir build && cd build
+  cmake ..
+  make && make install
+  
   # cp linearpart.h  linearpart.h_original
   # cat linearpart.h_original | sed s/\"mpi.h\"/\"mpi.h\"\\n#include\ \<stdint.h\>/ > linearpart.h
   # head -n 50 linearpart.h 1>&2
@@ -44,8 +47,8 @@ Include: bash
   
   # taudem from sh: https://unix.stackexchange.com/questions/346775/how-to-solve-building-error-where-a-variable-was-not-declared-in-this-scope
   # TauDEM 506, seems to work.
-  git clone https://github.com/gearslaboratory/gears-singularity.git
-  cd gears-singularity/additional_data/taudem
-  /bin/bash taudem_ubuntu.sh
+  #git clone https://github.com/gearslaboratory/gears-singularity.git
+  #cd gears-singularity/additional_data/taudem
+  #/bin/bash taudem_ubuntu.sh
 
 

@@ -41,7 +41,7 @@ Include: bash
   unzip LAStools.zip
   mv LAStools /APPS/
   
-# Testing lastools shortcuts:  
+# Lastools shortcuts:  
 for filename in /APPS/LAStools/bin/*.exe; do
 basename=`basename $filename .exe`
   echo '#!/bin/bash
