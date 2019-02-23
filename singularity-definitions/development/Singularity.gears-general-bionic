@@ -13,7 +13,7 @@ Include: bash
   apt-get -y update
 
   # Latest R
-  apt-get install -y software-properties-common python-software-properties
+  apt-get install -y software-properties-common
   # add-apt-repository ppa:edd/r-3.5
   # apt-get update
   
@@ -72,71 +72,19 @@ chmod 755 /usr/local/bin/$basename
 done
   
 # PDAL via conda
-#   
+cd /tmp
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh -b
+conda create --yes --name pdal --channel conda-forge pdal
+ 
   
-  ### SLURM FROM WITHIN THE CONTAINER VIA SSH
+### SLURM FROM WITHIN THE CONTAINER VIA SSH, PRONGHORN ONLY
+for filename in /cm/shared/apps/slurm/current/bin/*; do
+basename=`basename $filename`
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME '$filename '$1' >> /usr/local/bin/$basename
+chmod 755 /usr/local/bin/$basename
+done
 
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME sacct $1' >> /usr/local/bin/sacct
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME sacctmgr $1' >> /usr/local/bin/sacctmgr
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME salloc $1' >> /usr/local/bin/salloc
-    
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME sattach $1' >> /usr/local/bin/sattach
-    
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME sbatch $1' >> /usr/local/bin/sbatch
-    
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME sbcast $1' >> /usr/local/bin/sbcast
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME scancel $1' >> /usr/local/bin/scancel
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME scontrol $1' >> /usr/local/bin/scontrol
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME sdiag $1' >> /usr/local/bin/sdiag
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME sgather $1' >> /usr/local/bin/sgather
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME sinfo $1' >> /usr/local/bin/sinfo
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME smap $1' >> /usr/local/bin/smap
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME sprio $1' >> /usr/local/bin/sprio
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME squeue $1' >> /usr/local/bin/squeue
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME sreport $1' >> /usr/local/bin/sreport
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME srun $1' >> /usr/local/bin/srun
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME sshare $1' >> /usr/local/bin/sshare
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME sstat $1' >> /usr/local/bin/sstat
-      
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME strigger $1' >> /usr/local/bin/strigger
-  
-  echo '#!/bin/bash
-ssh $USER@$HOSTNAME sview $1' >> /usr/local/bin/sview
-  
-  cd /usr/local/bin
-  chmod 755 sacct salloc sbatch scancel sdiag sinfo sprio sreport sshare strigger sacctmgr sattach sbcast scontrol sgather smap squeue srun sstat sview    
-  
-  cd ~
+%runscript
+   conda activate pdal
