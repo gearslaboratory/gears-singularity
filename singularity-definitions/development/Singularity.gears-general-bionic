@@ -59,20 +59,34 @@ Include: bash
   mkdir -p /APPS /PROFILES
   chmod 0777 /APPS /PROFILES
   dpkg --add-architecture i386
-  apt-get update && apt-get -y install wget less vim software-properties-common python3-software-properties apt-transport-https winbind
   wget -nc https://dl.winehq.org/wine-builds/winehq.key
   apt-key add winehq.key
   apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
-  sudo apt update
-  sudo apt install --install-recommends winehq-stable
-
+  apt-get update
+  apt-get install -y --install-recommends winehq-stable
+  apt-get clean
   
+  # computree
+  git clone https://github.com/gearslaboratory/gears-singularity.git
+  cd gears-singularity/additional_data/computree
+  unzip computree_v5.0.184e.zip
+  mv computree_v5.0.184e /APPS/
+
   # lastools
   cd ~
-  wget http://lastools.org/download/LAStools.zip
+  wget https://lastools.github.io/download/LAStools.zip
   unzip LAStools.zip
   mv LAStools /APPS/
-  # TODO: shortcuts/licensing
+ # TODO: shortcut
+ 
+  
+# Testing lastools shortcuts:  
+for filename in /data/gpfs/home/jgreenberg/LAStools/bin/*.exe; do
+basename=`basename $filename .exe`
+  echo '#!/bin/bash
+WINEDEBUG=-all wine '$filename '$1' >> /usr/local/bin/$basename
+chmod 755 /usr/local/bin/$basename
+done
   
   ### SLURM FROM WITHIN THE CONTAINER VIA SSH
 
