@@ -5,6 +5,10 @@ Include: bash
 
 ###### GEARS Lab General-use Singularity image.  Contains R, GDAL, GRASS, and other code...
 
+%environment
+    PATH=$PATH:/APPS/LAStools/bin/
+    export PATH
+
 %post
   apt-get clean && apt-get -y update && apt-get install -y locales && locale-gen en_US.UTF-8
 	
@@ -67,8 +71,8 @@ Include: bash
 for filename in /APPS/LAStools/bin/*.exe; do
 basename=`basename $filename .exe`
   echo '#!/bin/bash
-WINEDEBUG=-all wine '$filename '$1' >> /usr/local/bin/$basename
-chmod 755 /usr/local/bin/$basename
+WINEDEBUG=-all wine '$filename '$1' >> /APPS/LAStools/bin/$basename
+chmod 755 /APPS/LAStools/bin/$basename
 done
   
 # PDAL via conda
@@ -76,7 +80,6 @@ cd /tmp
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh -b
 conda create --yes --name pdal --channel conda-forge pdal
- 
   
 ### SLURM FROM WITHIN THE CONTAINER VIA SSH, PRONGHORN ONLY
 for filename in /cm/shared/apps/slurm/current/bin/*; do
