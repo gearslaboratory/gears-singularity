@@ -3,8 +3,12 @@ OSVersion: xenial
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-### LASTools via WINE ### 
+### LASTools via WINE #### 
 # Singularity container developed by Jonathan Greenberg (jgreenberg@unr.edu)
+
+%environment
+    PATH=$PATH:/APPS/bin
+    export PATH
 
 %post
   locale-gen en_US.UTF-8
@@ -25,8 +29,8 @@ Include: bash
   chmod 0777 /APPS /PROFILES
   dpkg --add-architecture i386
   apt-get update && apt-get -y install wget less vim software-properties-common python3-software-properties apt-transport-https winbind
-  wget https://dl.winehq.org/wine-builds/Release.key
-  apt-key add Release.key
+  wget -nc https://dl.winehq.org/wine-builds/winehq.key
+  apt-key add winehq.key
   apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
   apt-get update && apt-get install -y winehq-stable winetricks # this installs Wine2
   apt-get clean
@@ -35,4 +39,4 @@ Include: bash
   cd ~
   wget http://lastools.org/download/LAStools.zip
   unzip LAStools.zip
-  mv LAStools /opt/
+  mv LAStools /APPS/
