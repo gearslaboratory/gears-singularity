@@ -3,7 +3,7 @@ OSVersion: bionic
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-### Computree via WINE #### 
+#### Computree via WINE #### 
 # Singularity container developed by Jonathan Greenberg (jgreenberg@unr.edu)
 
 %post
