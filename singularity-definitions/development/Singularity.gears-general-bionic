@@ -86,12 +86,70 @@ bash Miniconda3-latest-Linux-x86_64.sh -b
 conda create --yes --name pdal --channel conda-forge pdal
   
 ### SLURM FROM WITHIN THE CONTAINER VIA SSH, PRONGHORN ONLY
-for filename in /cm/shared/apps/slurm/current/bin/*; do
-basename=`basename $filename`
+
   echo '#!/bin/bash
-ssh $USER@$HOSTNAME '$filename '"$@"' >> /usr/local/bin/$basename
-chmod 755 /usr/local/bin/$basename
-done
+ssh $USER@$HOSTNAME sacct "$@"' >> /usr/local/bin/sacct
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME sacctmgr "$@"' >> /usr/local/bin/sacctmgr
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME salloc "$@"' >> /usr/local/bin/salloc
+    
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME sattach "$@"' >> /usr/local/bin/sattach
+    
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME sbatch "$@"' >> /usr/local/bin/sbatch
+    
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME sbcast "$@"' >> /usr/local/bin/sbcast
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME scancel "$@"' >> /usr/local/bin/scancel
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME scontrol "$@"' >> /usr/local/bin/scontrol
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME sdiag "$@"' >> /usr/local/bin/sdiag
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME sgather "$@"' >> /usr/local/bin/sgather
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME sinfo "$@"' >> /usr/local/bin/sinfo
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME smap "$@"' >> /usr/local/bin/smap
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME sprio "$@"' >> /usr/local/bin/sprio
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME squeue "$@"' >> /usr/local/bin/squeue
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME sreport "$@"' >> /usr/local/bin/sreport
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME srun "$@"' >> /usr/local/bin/srun
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME sshare "$@"' >> /usr/local/bin/sshare
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME sstat "$@"' >> /usr/local/bin/sstat
+      
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME strigger "$@"' >> /usr/local/bin/strigger
+  
+  echo '#!/bin/bash
+ssh $USER@$HOSTNAME sview "$@"' >> /usr/local/bin/sview
+  
+  cd /usr/local/bin
+  chmod 755 sacct salloc sbatch scancel sdiag sinfo sprio sreport sshare strigger sacctmgr sattach sbcast scontrol sgather smap squeue srun sstat sview    
+  
 
 %runscript
    conda activate pdal
