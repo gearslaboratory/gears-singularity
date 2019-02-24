@@ -83,6 +83,7 @@ done
 cd /tmp
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh -b
+source ~/.bashrc
 conda create --yes --name pdal --channel conda-forge pdal
   
 ### SLURM FROM WITHIN THE CONTAINER VIA SSH, PRONGHORN ONLY
