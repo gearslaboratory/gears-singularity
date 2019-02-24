@@ -75,7 +75,7 @@ Include: bash
 for filename in /APPS/LAStools/bin/*.exe; do
 basename=`basename $filename .exe`
   echo '#!/bin/bash
-WINEDEBUG=-all wine '$filename '$1' >> /usr/local/bin/$basename
+WINEDEBUG=-all wine '$filename '"$@"' >> /usr/local/bin/$basename
 chmod 755 /usr/local/bin/$basename
 done
   
@@ -89,7 +89,7 @@ conda create --yes --name pdal --channel conda-forge pdal
 for filename in /cm/shared/apps/slurm/current/bin/*; do
 basename=`basename $filename`
   echo '#!/bin/bash
-ssh $USER@$HOSTNAME '$filename '$1' >> /usr/local/bin/$basename
+ssh $USER@$HOSTNAME '$filename '"$@"' >> /usr/local/bin/$basename
 chmod 755 /usr/local/bin/$basename
 done
 
