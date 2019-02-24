@@ -36,8 +36,14 @@ Include: bash
   apt-get install -y --install-recommends winehq-stable
   apt-get clean
   
-  # computree
+  # computree via windows
   git clone https://github.com/gearslaboratory/gears-singularity.git
   cd gears-singularity/additional_data/computree
   unzip computree_v5.0.184e.zip
   mv computree_v5.0.184e /APPS/
+  
+  # computree via linux
+  git clone https://github.com/gearslaboratory/gears-singularity.git
+  cd gears-singularity/additional_data/computree
+  tar -xvf computree_release.tar.xz
+  mv computree_release /APPS/
