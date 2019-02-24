@@ -45,6 +45,6 @@ Include: bash
 for filename in /APPS/LAStools/bin/*.exe; do
 basename=`basename $filename .exe`
   echo '#!/bin/bash
-WINEDEBUG=-all wine '$filename '$1 $2 $3 $4 $5 $6 $7 $8 $9 $10 $11 $12 $13 $14 $15' >> /usr/local/bin/$basename
+WINEDEBUG=-all wine '$filename "$1" >> /usr/local/bin/$basename
 chmod 755 /usr/local/bin/$basename
 done
