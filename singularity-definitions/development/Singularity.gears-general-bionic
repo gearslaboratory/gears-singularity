@@ -85,7 +85,7 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh -bfp /usr/local
 ln -s /usr/local/etc/profile.d/conda.sh /etc/profile.d/conda.sh
 # source /etc/profile.d/conda.sh
-conda update -n base -c defaults conda
+# conda update -n base -c defaults conda
 conda create --yes --name pdal --channel conda-forge pdal
   
 ### SLURM FROM WITHIN THE CONTAINER VIA SSH, PRONGHORN ONLY
