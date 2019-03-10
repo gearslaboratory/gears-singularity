@@ -37,7 +37,7 @@ Include: bash
   apt-get clean
   
   # Headless:
-  apt-get install Xvfb  
+  apt-get install xvfb  
   
   # computree via windows
   git clone https://github.com/gearslaboratory/gears-singularity.git
