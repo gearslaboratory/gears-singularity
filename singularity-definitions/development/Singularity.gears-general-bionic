@@ -10,7 +10,8 @@ Include: bash
     export PATH
 
 %post
-  apt-get clean && apt-get -y update && apt-get install -y locales && locale-gen en_US.UTF-8
+  apt-get -y update && apt-get install -y --no-install-recommends apt-utils
+  apt-get -y clean && apt-get -y update && apt-get install -y locales && locale-gen en_US.UTF-8
 	
   # Add to sources list:
   sed -i 's/main/main restricted universe/g' /etc/apt/sources.list
@@ -18,8 +19,10 @@ Include: bash
 
   # Latest R
   apt-get install -y software-properties-common
-  # add-apt-repository ppa:edd/r-3.5
-  # apt-get update
+  # add-apt-repository -y 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
+  # apt-key -y adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+  # apt-get -y update
+  # apt-get install -y r-base r-base-core r-recommended
   
   # Install R, openmpi, misc. utilities:
   apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev \
