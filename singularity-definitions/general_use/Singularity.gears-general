@@ -45,7 +45,7 @@ Include: bash
   R --slave -e 'devtools:::install_git("Jean-Romain/rlas")'  
   R --slave -e 'devtools:::install_git("Jean-Romain/lidR")'  
   
-  # TreeLAS
+  # TreeLS
   R --slave -e 'install.packages(c("TreeLS"), repos="https://cloud.r-project.org/")'
   
   # Install latest GDALUtils:
