@@ -37,6 +37,7 @@ Include: bash
   apt-add-repository 'deb https://qgis.org/debian bionic main'  
 #  add-apt-repository ppa:ubuntugis/ppa
   apt-get update
+  apt-get install -y python3-qgis
   apt-get install -y grass libgdal-dev libproj-dev python-gdal python3-gdal
   apt-get install -y qgis python-qgis qgis-plugin-grass
 
