@@ -26,7 +26,7 @@ Include: bash
 
   # GRASS GIS and QGIS:
   add-apt-repository ppa:ubuntugis/ubuntugis-unstable
-  apt-get install -y python3-qgis
+  # apt-get install -y python3-qgis
   apt-get install -y software-properties-common python-software-properties
  #  add-apt-repository ppa:ubuntugis/ppa
   apt-get update
