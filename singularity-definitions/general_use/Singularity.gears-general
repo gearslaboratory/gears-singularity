@@ -25,12 +25,15 @@ Include: bash
   apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server libssh-dev wget vim git nano git cmake  gfortran g++ curl wget python autoconf bzip2 libtool libtool-bin libxml2-dev 
 
   # GRASS GIS and QGIS:
-  add-apt-repository ppa:ubuntugis/ubuntugis-unstable
-  # apt-get install -y python3-qgis
-  apt-get install -y software-properties-common python-software-properties
- #  add-apt-repository ppa:ubuntugis/ppa
+  apt-get install -y python-software-properties
+  add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
   apt-get update
-  apt-get install -y python-qgis-common grass libgdal-dev libproj-dev python-gdal python3-gdal qgis python-qgis
+  sudo apt-get install -y qgis python3-qgis qgis-plugin-grass
+  # add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+  # apt-get install -y python3-qgis
+  # apt-get install -y software-properties-common python-software-properties
+ #  add-apt-repository ppa:ubuntugis/ppa
+  # apt-get install -y python-qgis-common grass libgdal-dev libproj-dev python-gdal python3-gdal qgis python-qgis
 
   # Miscellaneous other installs.
   # libudunits2-dev is needed for the package "sf"
