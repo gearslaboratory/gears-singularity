@@ -40,13 +40,8 @@ Include: bash
   # Clean up the installations...
   apt-get clean
 
-  # lidR
-  apt-get install -y libgdal-dev libgeos++-dev libudunits2-dev libproj-dev libx11-dev libgl-dev libglu-dev libfreetype6-dev libv8-3.14-dev libcairo2-dev 
-  R --slave -e 'devtools:::install_git("Jean-Romain/rlas")'  
-  R --slave -e 'devtools:::install_git("Jean-Romain/lidR")'  
-  
-  # TreeLAS
-  R --slave -e 'install.packages(c("TreeLS"), repos="https://cloud.r-project.org/")'
+  # Install required R packages
+  R --slave -e 'install.packages(c("doMPI","XML","raster","rgdal","rgeos","RStoolbox","devtools","sf","foreach","R.utils","spatial.tools","gdalUtils","randomForestSRC","remotes","future"), repos="https://cloud.r-project.org/")'
   
   # Install latest GDALUtils:
   # R --slave -e 'remotes:::install_svn("svn://r-forge.r-project.org/svnroot/gdalutils/pkg/gdalUtils")'
