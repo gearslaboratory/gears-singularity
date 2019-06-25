@@ -75,7 +75,11 @@ Include: bash
 
   # lastools
   cd ~
-  wget https://github.com/LAStools/LAStools.github.io/blob/master/download/LAStools.zip
+  git clone https://github.com/LAStools/LAStools.github.io.git
+  cd LAStools.github.io/download
+  mv LAStools.zip ~
+  rm -rf ~/LAStools.github.io
+  # wget https://github.com/LAStools/LAStools.github.io/blob/master/download/LAStools.zip
   # wget https://lastools.github.io/download/LAStools.zip
   unzip LAStools.zip
   mv LAStools /APPS/
