@@ -72,9 +72,9 @@ Include: bash
   chmod 0777 /APPS /PROFILES
   dpkg --add-architecture i386
   apt-get update && apt-get -y install wget less vim software-properties-common python3-software-properties apt-transport-https winbind
-  wget https://dl.winehq.org/wine-builds/Release.key
-  apt-key add Release.key
-  apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
+  wget -nc https://dl.winehq.org/wine-builds/winehq.key
+  apt-key add winehq.key
+  apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main'
   apt-get update && apt-get install -y winehq-stable winetricks # this installs Wine2
   apt-get clean
   
