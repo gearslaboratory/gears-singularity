@@ -85,8 +85,6 @@ cd ~
   mv LAStools.zip ~
   cd ~
   rm -rf ~/LAStools.github.io
-  # wget https://github.com/LAStools/LAStools.github.io/blob/master/download/LAStools.zip
-  # wget https://lastools.github.io/download/LAStools.zip
   unzip LAStools.zip
   mv LAStools /APPS/
   
