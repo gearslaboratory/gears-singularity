@@ -25,6 +25,9 @@ Include: bash
   # apt-get -y update
   # apt-get install -y r-base r-base-core r-recommended
   
+  # lidR dependencies:
+  apt-get install -y libgdal-dev libgeos++-dev libudunits2-dev libproj-dev libx11-dev libgl-dev libglu-dev libfreetype6-dev libv8-3.14-dev libcairo2-dev 
+    
   # Install R, openmpi, misc. utilities:
   apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev \
   	libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server \
