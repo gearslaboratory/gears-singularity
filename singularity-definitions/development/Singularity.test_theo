@@ -208,16 +208,4 @@ ssh $USER@$HOSTNAME sview "$@"' >> /usr/local/bin/sview
 
 %runscript
    conda activate pdal
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
 
