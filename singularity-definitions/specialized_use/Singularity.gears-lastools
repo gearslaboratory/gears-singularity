@@ -36,7 +36,7 @@ Include: bash
   apt-get clean
   
   # lastools
-  cd ~
+  # cd ~
   wget https://lastools.github.io/download/LAStools.zip
   unzip LAStools.zip
   mv LAStools /APPS/
@@ -48,3 +48,9 @@ basename=`basename $filename .exe`
 WINEDEBUG=-all wine '$filename '"$@"' >> /usr/local/bin/$basename
 chmod 755 /usr/local/bin/$basename
 done
+
+%help
+This container runs LAStools via an emulated Windows environment. A typical run would look like:
+singularity exec /pathto/gearslaboratory-gears-singularity-master-gears-lastools.simg lasinfo -h
+If you have a LASTools license, set it in your environment before running singularity using e.g.:
+export LAStoolsLicenseFile=/pathto/lastoolslicense.txt 
