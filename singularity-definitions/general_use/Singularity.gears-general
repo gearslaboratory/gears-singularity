@@ -36,14 +36,21 @@ Include: bash
 
   # GRASS GIS and QGIS:
   apt-get install -y software-properties-common
-  wget -O - https://qgis.org/downloads/qgis-2017.gpg.key | gpg --import
-  gpg --export --armor CAEB3DC3BDF7FB45 | apt-key add -
-  apt-add-repository 'deb https://qgis.org/debian bionic main'  
-#  add-apt-repository ppa:ubuntugis/ppa
+  add-apt-repository ppa:ubuntugis/ppa
   apt-get update
   apt-get install -y python3-qgis
   apt-get install -y grass libgdal-dev libproj-dev python-gdal python3-gdal
   apt-get install -y qgis python-qgis qgis-plugin-grass
+
+
+#  wget -O - https://qgis.org/downloads/qgis-2017.gpg.key | gpg --import
+#  gpg --export --armor CAEB3DC3BDF7FB45 | apt-key add -
+#  apt-add-repository 'deb https://qgis.org/debian bionic main'  
+#  add-apt-repository ppa:ubuntugis/ppa
+#  apt-get update
+#  apt-get install -y python3-qgis
+#  apt-get install -y grass libgdal-dev libproj-dev python-gdal python3-gdal
+#  apt-get install -y qgis python-qgis qgis-plugin-grass
 
   # Miscellaneous other installs.
   # libudunits2-dev is needed for the package "sf"
