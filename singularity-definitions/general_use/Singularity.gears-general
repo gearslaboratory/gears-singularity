@@ -3,7 +3,7 @@ OSVersion: bionic
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
-####### GEARS Lab General-use Singularity image.  Contains R, GDAL, GRASS, and other code...x
+######## GEARS Lab General-use Singularity image.  Contains R, GDAL, GRASS, and other code...x
 
 %environment
     PATH=$PATH:/APPS/LAStools/bin/
