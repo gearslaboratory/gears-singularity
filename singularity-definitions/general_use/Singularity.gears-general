@@ -32,7 +32,7 @@ Include: bash
   apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev \
   	libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server \
   	libssh-dev wget vim git nano git cmake gfortran g++ curl wget python autoconf \
-  	bzip2 libtool libtool-bin libxml2-dev unzip libssl-dev # r-cran-openssl
+  	bzip2 libtool libtool-bin libxml2-dev unzip openssl-dev # r-cran-openssl
 
   # GRASS GIS and QGIS:
   apt-get install -y software-properties-common
