@@ -1,5 +1,5 @@
 BootStrap: debootstrap
-OSVersion: bionic
+OSVersion: eoan
 MirrorURL: http://archive.ubuntu.com/ubuntu/
 Include: bash
 
@@ -32,10 +32,7 @@ Include: bash
   apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev \
   	libopenmpi-dev openmpi-bin openmpi-common openmpi-doc openssh-client openssh-server \
   	libssh-dev wget vim git nano git cmake gfortran g++ curl wget python autoconf \
-  	bzip2 libtool libtool-bin libxml2-dev unzip libssl-dev openssl # r-cran-openssl
-
-  # Problematic R packages:
-  R --slave -e 'install.packages(c("openssl"))'
+  	bzip2 libtool libtool-bin libxml2-dev unzip openssl # r-cran-openssl
 
   # GRASS GIS and QGIS:
   apt-get install -y software-properties-common
@@ -77,10 +74,10 @@ Include: bash
   apt-get clean
   
   # computree
-  git clone https://github.com/gearslaboratory/gears-singularity.git
-  cd gears-singularity/additional_data/computree
-  unzip computree_v5.0.184e.zip
-  mv computree_v5.0.184e /APPS/
+  # git clone https://github.com/gearslaboratory/gears-singularity.git
+  # cd gears-singularity/additional_data/computree
+  # unzip computree_v5.0.184e.zip
+  # mv computree_v5.0.184e /APPS/
   # TODO: shortcut
 
   # lastools
