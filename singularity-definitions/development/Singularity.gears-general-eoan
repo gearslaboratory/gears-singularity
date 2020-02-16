@@ -20,13 +20,13 @@ Include: bash
   # Latest R
   apt-get install -y software-properties-common
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-  add-apt-repository -y 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
+  add-apt-repository -y 'deb https://cloud.r-project.org/bin/linux/ubuntu eoan-cran35/'
   # apt-key -y adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
   # apt-get -y update
   # apt-get install -y r-base r-base-core r-recommended
   
   # lidR dependencies:
-  apt-get install -y libgdal-dev libgeos++-dev libudunits2-dev libproj-dev libx11-dev libgl-dev libglu-dev libfreetype6-dev libv8-3.14-dev libcairo2-dev 
+  apt-get install -y libgdal-dev libgeos++-dev libudunits2-dev libproj-dev libx11-dev libgl-dev libglu-dev libfreetype6-dev libv8-dev libcairo2-dev 
     
   # Install R, openmpi, misc. utilities:
   apt-get install -y libopenblas-dev r-base-core r-base-dev libcurl4-openssl-dev \
@@ -45,7 +45,7 @@ Include: bash
 
 #  wget -O - https://qgis.org/downloads/qgis-2017.gpg.key | gpg --import
 #  gpg --export --armor CAEB3DC3BDF7FB45 | apt-key add -
-#  apt-add-repository 'deb https://qgis.org/debian bionic main'  
+#  apt-add-repository 'deb https://qgis.org/debian eoan main'  
 #  add-apt-repository ppa:ubuntugis/ppa
 #  apt-get update
 #  apt-get install -y python3-qgis
@@ -68,7 +68,7 @@ Include: bash
   dpkg --add-architecture i386
   wget -nc https://dl.winehq.org/wine-builds/winehq.key
   apt-key add winehq.key
-  apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
+  apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ eoan main'
   apt-get update
   apt-get install -y --install-recommends winehq-stable
   apt-get clean
