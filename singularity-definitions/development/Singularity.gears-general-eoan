@@ -36,8 +36,8 @@ Include: bash
 
   # GRASS GIS and QGIS:
   apt-get install -y software-properties-common
-  add-apt-repository ppa:ubuntugis/ppa
-  apt-get update
+  # add-apt-repository ppa:ubuntugis/ppa
+  # apt-get update
 #  apt-get install -y python3-qgis
 #  apt-get install -y grass libgdal-dev libproj-dev python-gdal python3-gdal
   apt-get install -y qgis # python-qgis qgis-plugin-grass
