@@ -116,7 +116,7 @@ unzip vdatum_all_20191024.zip
 mv vdatum /APPS/
 # todo: make a shortcut
 	echo '#!/bin/bash
-java -jar /APPS/vdatum/vdatum.jar "$@" >> /usr/local/bin/vdatum
+java -jar /APPS/vdatum/vdatum.jar "$@"' >> /usr/local/bin/vdatum
 chmod 755 /usr/local/bin/vdatum
 
 
