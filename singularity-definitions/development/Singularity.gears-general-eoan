@@ -108,6 +108,13 @@ ln -s /usr/local/etc/profile.d/conda.sh /etc/profile.d/conda.sh
 # source /etc/profile.d/conda.sh
 # conda update -n base -c defaults conda
 conda create --yes --name pdal --channel conda-forge pdal
+
+# vdatum build
+apt-get install -y install default-jre
+wget https://vdatum.noaa.gov/download/data/vdatum_all_20191024.zip
+unzip vdatum_all_20191024.zip
+mv vdatum /APPS/
+# todo: make a shortcut
   
 ### SLURM FROM WITHIN THE CONTAINER VIA SSH, PRONGHORN ONLY
 
