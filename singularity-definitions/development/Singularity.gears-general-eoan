@@ -80,7 +80,7 @@ Include: bash
   # mv computree_v5.0.184e /APPS/
   # TODO: shortcut
 
-  # lastools
+  ## lastools
   cd ~
   git clone https://github.com/LAStools/LAStools.github.io.git
   cd LAStools.github.io/download
