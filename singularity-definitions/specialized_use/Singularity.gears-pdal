@@ -4,7 +4,7 @@ From: pdal/pdal:latest
 %post
 
 # vdatum build
-apt-get install -y default-jre wget unzip
+apt-get -y update && apt-get install -y default-jre wget unzip
 wget https://vdatum.noaa.gov/download/data/vdatum_all_20191024.zip
 unzip vdatum_all_20191024.zip
 mv vdatum /APPS/
