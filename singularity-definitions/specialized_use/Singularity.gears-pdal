@@ -1,2 +1,14 @@
 Bootstrap: docker
 From: pdal/pdal:latest
+
+%post
+
+# vdatum build
+apt-get install -y default-jre wget unzip
+wget https://vdatum.noaa.gov/download/data/vdatum_all_20191024.zip
+unzip vdatum_all_20191024.zip
+mv vdatum /APPS/
+# todo: make a shortcut
+	echo '#!/bin/bash
+java -jar /APPS/vdatum/vdatum.jar "$@"' >> /usr/local/bin/vdatum
+chmod 755 /usr/local/bin/vdatum
