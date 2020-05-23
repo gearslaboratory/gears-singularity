@@ -1,2 +1,2 @@
 Bootstrap: docker
-From: msmitherdc/pdal:1.7
+From: pdal/pdal:latest
