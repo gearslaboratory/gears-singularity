@@ -43,6 +43,7 @@ Include: bash
   # Install lidR:
   add-apt-repository ppa:glasen/freetype2
   apt-get update && apt-get install -y freetype2-demos
+  apt-get update && apt-get install -y libcairo2-dev
   # apt-get install -y freetype
   R --slave -e 'install.packages(c("lidR"), repos="https://cloud.r-project.org/")'
   
