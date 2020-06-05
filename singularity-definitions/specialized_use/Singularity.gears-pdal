@@ -18,7 +18,7 @@ apt-get install -y gfortran
 wget https://www.ngs.noaa.gov/TOOLS/Htdp/HTDP-download.zip
 unzip HTDP-download.zip -d HTDP-download
 cd HTDP-download
-gfortran htdp.for -o htdp
+gfortran htdp.f -o htdp
 mv htdp /usr/local/bin
 cd ..
 wget https://raw.githubusercontent.com/OSGeo/gdal/master/gdal/swig/python/samples/crs2crs2grid.py
