@@ -12,3 +12,14 @@ mv vdatum /APPS/
 	echo '#!/bin/bash
 java -jar /APPS/vdatum/vdatum.jar "$@"' >> /usr/local/bin/vdatum
 chmod 755 /usr/local/bin/vdatum
+
+# htdps
+apt-get install -y gfortran
+wget https://www.ngs.noaa.gov/TOOLS/Htdp/HTDP-download.zip
+unzip HTDP-download.zip
+cd HTDP-download
+gfortran htdp.for -o htdp
+mv htdp /usr/local/bin
+cd ..
+wget https://raw.githubusercontent.com/OSGeo/gdal/master/gdal/swig/python/samples/crs2crs2grid.py
+mv crs2crs2grid.py /bin
