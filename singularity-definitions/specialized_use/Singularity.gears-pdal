@@ -26,8 +26,8 @@ apt-get -y install libgdal-dev
 export CPLUS_INCLUDE_PATH=/usr/include/gdal
 export C_INCLUDE_PATH=/usr/include/gdal
 apt-get install -y python3-setuptools
-easy_install pip
-pip install GDAL
+# easy_install pip
+pip3 install GDAL
 
 
 wget https://www.ngs.noaa.gov/TOOLS/Htdp/HTDP-download.zip
