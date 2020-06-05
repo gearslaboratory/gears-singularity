@@ -22,5 +22,5 @@ gfortran htdp.f -o htdp
 mv htdp /usr/local/bin
 cd ..
 wget https://raw.githubusercontent.com/OSGeo/gdal/master/gdal/swig/python/samples/crs2crs2grid.py
-mv crs2crs2grid.py /bin
-chmod +x /bin/crs2crs2grid.py
+mv crs2crs2grid.py /usr/local/bin
+chmod +x /usr/local/bin/crs2crs2grid.py
