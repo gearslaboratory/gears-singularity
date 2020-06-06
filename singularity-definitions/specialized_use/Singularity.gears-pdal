@@ -20,7 +20,7 @@ chmod 755 /usr/local/bin/vdatum
 apt-get install -y gfortran 
 wget https://www.ngs.noaa.gov/TOOLS/Htdp/HTDP-download.zip
 unzip HTDP-download.zip -d HTDP-download
-cd HTDP-download
+# cd HTDP-download
 gfortran HTDP-download/htdp.f -o HTDP-download/htdp
 mv HTDP-download/htdp /usr/local/bin
 
