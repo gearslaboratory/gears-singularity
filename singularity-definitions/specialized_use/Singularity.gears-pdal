@@ -17,12 +17,19 @@ java -jar /APPS/vdatum/vdatum.jar "$@"' >> /usr/local/bin/vdatum
 chmod 755 /usr/local/bin/vdatum
 
 # htdps
+# apt-get install -y gfortran 
+# wget https://www.ngs.noaa.gov/TOOLS/Htdp/HTDP-download.zip
+# unzip HTDP-download.zip -d HTDP-download
+# gfortran HTDP-download/htdp.f -o HTDP-download/htdp
+# mv htdp /usr/local/bin
+
+# htdps 3.2.5
 apt-get install -y gfortran 
-wget https://www.ngs.noaa.gov/TOOLS/Htdp/HTDP-download.zip
-unzip HTDP-download.zip -d HTDP-download
-# cd HTDP-download
-gfortran HTDP-download/htdp.f -o HTDP-download/htdp
-mv HTDP-download/htdp /usr/local/bin
+wget https://github.com/gearslaboratory/gears-singularity/blob/master/additional_data/htdp/htdp.for
+gfortran htdp.for -o htdp
+mv htdp /usr/local/bin
+
+
 
 # crs2crs2grid.py
 apt-get install -y python3-setuptools python3-pip
