@@ -25,7 +25,7 @@ chmod 755 /usr/local/bin/vdatum
 
 # htdps 3.2.5
 apt-get install -y gfortran 
-wget https://github.com/gearslaboratory/gears-singularity/blob/master/additional_data/htdp/htdp.for
+wget https://raw.githubusercontent.com/gearslaboratory/gears-singularity/master/additional_data/htdp/htdp.for
 gfortran htdp.for -o htdp
 mv htdp /usr/local/bin
 
