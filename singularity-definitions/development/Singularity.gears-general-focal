@@ -1,5 +1,5 @@
-BootStrap: debootstrap
-OSVersion: focal
+Bootstrap:docker
+From:ubuntu:latest
 Include: bash
 
 ######## GEARS Lab General-use Singularity image.  Contains R, GDAL, GRASS, and other code...x
